@@ -1,4 +1,4 @@
-If you want to quickly experience the model performance without installing other libraries or Python packages, you can use the [scripts/inference_hf.py](scripts/inference_hf.py) script to launch a non-quantized model. The script supports single-card inference for both CPU and GPU. For example, to launch the Chinese-Alpaca-7B model, run the script as follows:
+If you want to quickly experience the model performance without installing other libraries or Python packages, you can use the [scripts/inference_hf.py](https://github.com/ymcui/Chinese-LLaMA-Alpaca/blob/main/scripts/inference_hf.py) script to launch a non-quantized model. The script supports single-card inference for both CPU and GPU. For example, to launch the Chinese-Alpaca-7B model, run the script as follows:
 
 ```bash
 CUDA_VISIBLE_DEVICES={device_id} python scripts/inference_hf.py \
@@ -21,7 +21,7 @@ Parameter description:
 
 - `{device_id}`: CUDA device number. If empty, inference will be performed on the CPU.
 - `--base_model {base_model}`: Directory containing the LLaMA model weights and configuration files in HF format.
-- `--lora_model {lora_model}`: Directory of the Chinese LLaMA/Alpaca LoRa files after decompression, or the [🤗Model Hub model name](#Model-Hub). If this parameter is not provided, only the model specified by `--base_model` will be loaded.
+- `--lora_model {lora_model}`: Directory of the Chinese LLaMA/Alpaca LoRa files after decompression, or the [🤗Model Hub model name](https://github.com/ymcui/Chinese-LLaMA-Alpaca/blob/main/README_EN.md#model-hub). If this parameter is not provided, only the model specified by `--base_model` will be loaded.
 - `--tokenizer_path {tokenizer_path}`: Directory containing the corresponding tokenizer. If this parameter is not provided, its default value is the same as `--lora_model`; if the `--lora_model` parameter is not provided either, its default value is the same as `--base_model`.
 - `--with_prompt`: Whether to merge the input with the prompt template. **If you are loading an Alpaca model, be sure to enable this option!**
 - `--interactive`: Launch interactively for multiple **single-round question-answer** sessions (this is not the contextual dialogue in llama.cpp).
