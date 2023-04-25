@@ -9,9 +9,18 @@
    - The SHA256 of the weight file `consolidated.00.pth`: `700df0d3013b703a806d2ae7f1bfb8e59814e3d06ae78be0c66368a50059f33d`
 
 3. Dependencies:
-   - ⚠️ **You MUST use the [latest 🤗Transformers library](https://huggingface.co/docs/transformers/installation#install-from-source)**. The current release v4.27 does not support LLaMA. 
-   - install `sentencepiece` and `peft` using `pip` command
+   - `torch`（1.12.0）⚠️ the checksum differs for torch 1.13.0 (and after), use with caution
+   - `transformers`（4.28.1）
+   - `sentencepiece`（0.1.97）
+   - `peft`（0.2.0）
+   - python >= 3.9
 
+```bash
+pip install torch==1.12.0
+pip install transformers
+pip install sentencepiece
+pip install peft
+```
 
  ```bash
  pip install git+https://github.com/huggingface/transformers
