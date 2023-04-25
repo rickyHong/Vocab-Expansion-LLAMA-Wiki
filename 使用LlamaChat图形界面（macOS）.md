@@ -32,3 +32,9 @@ LlamaChat提供了一种面向macOS系统的类LLaMA模型的交互图形界面�
 （提示：生成第一句话时需要加载模型，之后速度就会恢复正常了）
 
 <img width="1033" alt="image" src="https://user-images.githubusercontent.com/16095339/232357193-c4f5b1ac-437c-4fb3-9eb4-9a62743775d3.png">
+
+### 自定义设置
+
+v1.2版本支持了自定义参数，提供了更加灵活的解码方式，可根据实际情况自行修改。
+
+<img width="1033" alt="image" src="https://user-images.githubusercontent.com/16095339/233646243-100ea9c5-8a59-4bca-a530-8afbf66ad98c.png">
