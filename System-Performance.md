@@ -1,19 +1,19 @@
 
-In order to quickly evaluate the actual performance of related models, this project compared the effects of Chinese Alpaca-7B and Chinese Alpaca-13B on some common tasks given the same prompt. The test models are all **4-bit quantized models**, and the theoretical effect is worse than the non-quantized version. Reply generation is random and is affected by factors such as decoding hyperparameters and random seeds. The following related evaluations are not absolutely rigorous, and the test results are for reference only. Welcome to experience it yourself. For detailed evaluation results, please see [examples/README.md](./examples/README.md)
+In order to quickly evaluate the actual performance of related models, this project compared the effects of Chinese Alpaca-7B and Chinese Alpaca-13B on some common tasks given the same prompt. The test models are all **4-bit quantized models**, and the theoretical effect is worse than the non-quantized version. Reply generation is random and is affected by factors such as decoding hyperparameters and random seeds. The following related evaluations are not absolutely rigorous, and the test results are for reference only. Welcome to experience it yourself. For detailed evaluation results, please see [examples/README.md](https://github.com/ymcui/Chinese-LLaMA-Alpaca/tree/main/examples)
 
 | Task                           |                Samples                 |  #   | Chinese Alpaca-7B | Chinese Alpaca-13B |
 | ------------------------------ | :------------------------------------: | :--: | :---------------: | :----------------: |
 | **💯 Overall**                  |                   -                    | 160  |      **49**       |      **👍🏻71**      |
-| Question Answering             |       [QA.md](./examples/QA.md)        |  20  |        53         |      **👍🏻77**      |
-| Open QA                        |           [OQA.md](./examples/OQA.md)           |  20  |        64         |      **👍🏻73**      |
-| Computation, Reasoning         |     [REASONING.md](./examples/REASONING.md)     |  20  |        23         |      **👍🏻50**      |
-| Poetry, Literature, Philosophy |    [LITERATURE.md](./examples/LITERATURE.md)    |  20  |        31         |      **👍🏻54**      |
-| Music, Sports, Entertainment   | [ENTERTAINMENT.md](./examples/ENTERTAINMENT.md) |  20  |        36         |      **👍🏻65**      |
-| Letters and Articles           |    [GENERATION.md](./examples/GENERATION.md)    |  15  |        65         |      **👍🏻78**      |
-| Translation                    |   [TRANSLATION.md](./examples/TRANSLATION.md)   |  15  |        63         |      **👍🏻79**      |
-| Multi-turn Dialogue            |      [DIALOGUE.md](./examples/DIALOGUE.md)      |  10  |        80         |      **👍🏻83**      |
-| Coding                         |          [CODE.md](./examples/CODE.md)          |  10  |        27         |      **👍🏻49**      |
-| Ethics                         |        [ETHICS.md](./examples/ETHICS.md)        |  10  |        50         |     **👍🏻100**      |
+| Question Answering             |       [QA.md](https://github.com/ymcui/Chinese-LLaMA-Alpaca/tree/main/examples/QA.md)        |  20  |        53         |      **👍🏻77**      |
+| Open QA                        |           [OQA.md](https://github.com/ymcui/Chinese-LLaMA-Alpaca/tree/main/examples/OQA.md)           |  20  |        64         |      **👍🏻73**      |
+| Computation, Reasoning         |     [REASONING.md](https://github.com/ymcui/Chinese-LLaMA-Alpaca/tree/main/examples/REASONING.md)     |  20  |        23         |      **👍🏻50**      |
+| Poetry, Literature, Philosophy |    [LITERATURE.md](https://github.com/ymcui/Chinese-LLaMA-Alpaca/tree/main/examples/LITERATURE.md)    |  20  |        31         |      **👍🏻54**      |
+| Music, Sports, Entertainment   | [ENTERTAINMENT.md](https://github.com/ymcui/Chinese-LLaMA-Alpaca/tree/main/examples/ENTERTAINMENT.md) |  20  |        36         |      **👍🏻65**      |
+| Letters and Articles           |    [GENERATION.md](https://github.com/ymcui/Chinese-LLaMA-Alpaca/tree/main/examples/GENERATION.md)    |  15  |        65         |      **👍🏻78**      |
+| Translation                    |   [TRANSLATION.md](https://github.com/ymcui/Chinese-LLaMA-Alpaca/tree/main/examples/TRANSLATION.md)   |  15  |        63         |      **👍🏻79**      |
+| Multi-turn Dialogue            |      [DIALOGUE.md](https://github.com/ymcui/Chinese-LLaMA-Alpaca/tree/main/examples/DIALOGUE.md)      |  10  |        80         |      **👍🏻83**      |
+| Coding                         |          [CODE.md](https://github.com/ymcui/Chinese-LLaMA-Alpaca/tree/main/examples/CODE.md)          |  10  |        27         |      **👍🏻49**      |
+| Ethics                         |        [ETHICS.md](https://github.com/ymcui/Chinese-LLaMA-Alpaca/tree/main/examples/ETHICS.md)        |  10  |        50         |     **👍🏻100**      |
 
 
 <details>
