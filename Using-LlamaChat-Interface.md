@@ -32,3 +32,10 @@ After successfully adding the model, you can interact with it. Click on the icon
 (Note: Loading the model is necessary for generating the first sentence, but the speed will return to normal afterward.)
 
 <img width="1033" alt="image" src="https://user-images.githubusercontent.com/16095339/232357193-c4f5b1ac-437c-4fb3-9eb4-9a62743775d3.png">
+
+
+### Settings
+
+LlamaChat v1.2 introduces customized settings for inference. Take a look and try.
+
+<img width="1033" alt="image" src="https://user-images.githubusercontent.com/16095339/233646243-100ea9c5-8a59-4bca-a530-8afbf66ad98c.png">
