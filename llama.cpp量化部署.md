@@ -40,7 +40,7 @@ python convert.py zh-models/7B/
 ```
 
 #### 关于量化参数（上述命令中的最后一个参数）
-测试中使用了默认`-t`参数（默认值：4），推理模型为中文Alpaca-7B，测试环境M1 Max。测试命令更多关于量化参数可参考[llama.cpp#PPL](https://github.com/ggerganov/llama.cpp#perplexity-measuring-model-quality)。
+测试中使用了默认`-t`参数（默认值：4），推理模型为中文Alpaca-7B，测试环境M1 Max。测试命令更多关于量化参数可参考[llama.cpp量化统计表](https://github.com/ggerganov/llama.cpp#quantization)。
 
 | 参数 | 对应量化算法 | 推理速度 | 模型大小 | 小样本数据PPL | 备注 | 
 |---|---|---|---|---|---|
@@ -48,7 +48,11 @@ python convert.py zh-models/7B/
 | 3 | q4_1 | 102ms/token | 5.17G | 24.5 | - |
 | 5（ARM only）| q4_2 | 85ms/token | 4.31G | 24.8 |  实验性，需要等稳定版本 |
 | 6 | q4_3 | 156ms/token | 5.17G | 22.9 | 实验性，需要等稳定版本 |
+| 8 | q5_0 | 91ms/token | 4.74G | 22.4 | 实验性，需要等稳定版本 |
+| 7 | q8_0 | 57ms/token | 7.75G | 21.8 | 实验性，需要等稳定版本 |
 | - | f16 | 88ms/token | 13.77G | 21.8 | 非量化版本 |
+
+一言以蔽之：q8_0性价比较高，建议选用。内存不够的可以选q4_0，但从PPL看损失明显。
 
 ### Step 3: 加载并启动模型
 
