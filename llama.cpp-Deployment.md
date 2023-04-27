@@ -48,8 +48,11 @@ Here, we use the default `-t` param (default value: 4), using Chinese Alpaca-7B 
 | 3 | q4_1 | 102ms/token | 5.17G | 24.5 | - |
 | 5（ARM only）| q4_2 | 85ms/token | 4.31G | 24.8 |  experimental, under dev  |
 | 6 | q4_3 | 156ms/token | 5.17G | 22.9 | experimental, under dev  |
+| 8 | q5_0 | 91ms/token | 4.74G | 22.4 | experimental, under dev |
+| 7 | q8_0 | 57ms/token | 7.75G | 21.8 | experimental, under dev |
 | - | f16 | 88ms/token | 13.77G | 21.8 | no quantization |
 
+Note: we recommend use q8_0 version, which has a good tradeoff.
 
 ### Step 3: Load and start the model
 
