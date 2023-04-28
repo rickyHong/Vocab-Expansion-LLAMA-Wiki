@@ -57,9 +57,17 @@ The meanings of most arguments are self-evident. Here are explanations for some 
 The hyperparameters listed here (especially the learning rate and parameters related to the total batch size) are for reference only. Please feel free to adjust them based your training data and hardware conditions.
 
 
-To use DeepSpeed, you can add the following argument `--deepspeed ${deepspeed_config_file}`.  Additionally, you should use torchrun to launch the script:
+To use DeepSpeed, you can add the following argument `--deepspeed ${deepspeed_config_file}`.  Additionally, you should use `torchrun` to launch the script:
 ```bash
-torchrun --nnodes ${num_nodes} --nproc_per_node ${num_gpu_per_node} --node_rank ${node_rank} --master_addr ${master_addr} --master_port ${master_port} run_clm_pt_with_peft.py ...
+torchrun \
+  --nnodes ${num_nodes} \
+  --nproc_per_node ${num_gpu_per_node} 
+  --node_rank ${node_rank} \
+  --master_addr ${master_addr} \
+  --master_port ${master_port} \
+  run_clm_pt_with_peft.py 
+    --deepspeed ${deepspeed_config_file} \
+    ...
 ```
 
 
