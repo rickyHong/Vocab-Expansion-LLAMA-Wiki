@@ -12,7 +12,7 @@
 ### 3. [系统效果](https://github.com/ymcui/Chinese-LLaMA-Alpaca/wiki/系统效果)
 
 ### 4. [训练细节](https://github.com/ymcui/Chinese-LLaMA-Alpaca/wiki/训练细节)
-
+  - [预训练脚本](https://github.com/ymcui/Chinese-LLaMA-Alpaca/wiki/预训练脚本)
 ### 5. [常见问题](https://github.com/ymcui/Chinese-LLaMA-Alpaca/wiki/常见问题)
 
 
@@ -31,7 +31,7 @@
 ### 3. **[System Performance](https://github.com/ymcui/Chinese-LLaMA-Alpaca/wiki/System-Performance)**
 
 ### 4. **[Training Details](https://github.com/ymcui/Chinese-LLaMA-Alpaca/wiki/Training-Details)**
-
+  - [Pre-training Script](https://github.com/ymcui/Chinese-LLaMA-Alpaca/wiki/Pretraining-script)
 ### 5. **[FAQ](https://github.com/ymcui/Chinese-LLaMA-Alpaca/wiki/FAQ)**
 
 
