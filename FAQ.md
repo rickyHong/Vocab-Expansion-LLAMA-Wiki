@@ -2,7 +2,7 @@
 
 A: This question has been emphasized repeatedly before. The open source license for the LLaMA model does not allow us to do so, so related derivative work is seeking ways to bypass the restrictions. Please believe that we set up so many steps not to increase everyone's workload, but because of objective circumstances. After Facebook fully opens up the weights, we will release the complete model and directly loadable quantized models as soon as possible. During this period, we will also closely monitor other LLaMA-related repositories to see if there are better methods.
 
-### Q2: Will there be versions of 13B, 33B, and 65B in the future?
+### Q2: Will there be versions of 33B and 65B in the future?
 
 A: We cannot guarantee this at this time.
 
