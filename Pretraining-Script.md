@@ -65,7 +65,7 @@ torchrun \
   --node_rank ${node_rank} \
   --master_addr ${master_addr} \
   --master_port ${master_port} \
-  run_clm_pt_with_peft.py 
+  run_clm_pt_with_peft.py \
     --deepspeed ${deepspeed_config_file} \
     ...
 ```
