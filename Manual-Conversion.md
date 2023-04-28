@@ -45,23 +45,43 @@ python src/transformers/models/llama/convert_llama_weights_to_hf.py \
 
 This step will expand the Chinese vocabulary of the original LLaMA model (HF format), merge LoRA weights, and generate full model weights. There are two options available here:
 
-- ✅ If you need quantize and deploy our model: output the weight of PyTorch version (`. pth` file) using `scripts/merge_llama_with_chinese_lora.py` script
-- ❎ If you DO NOT need quantize and deploy our model: output the weight of the HuggingFace version (such as for further fine-tuning), using `scripts/merge_llama_with_chinese_lora_to_hf.py` script (thanks @sgsdxzy)
+- generate a `pth` model file for quantization and deployment
+- generate a HuggingFace model file（`bin` file) for simple inference. 
 
-The parameters that need to be set for the above two scripts are consistent, but the output file format is different. The followings are command lines for generating `.pth` file (need further quantize and deploy our model). 
+Note that the merging steps of different models are different. Please read the following guide and follow the steps strictly.
+
+#### Single LoRA weight merging (applicable to Chinese-LLaMA, Chinese-LLaMA-Plus, and Chinese-Alpaca)
+
+Execute the following command:
 
 ```bash
 python scripts/merge_llama_with_chinese_lora.py \
     --base_model path_to_original_llama_hf_dir \
     --lora_model path_to_chinese_llama_or_alpaca_lora \
-    --output_dir path_to_output_dir
+    --output_type [pth|huggingface]
+    --output_dir path_to_output_dir 
 ```
-
 where:
 
 - `--base_model`: directory where the HF format LLaMA model weights and configuration files are saved (generated in Step 1)
 - `--lora_model`: directory where the Chinese LLaMA/Alpaca LoRA model compressed file downloaded in the previous section is located, or the model name on Hugging Face Model Hub: `ziqingyang/chinese-alpaca-lora-7b` or `ziqingyang/chinese-llama-lora-7b`
-- `--output_model`: directory to save the consolidated model weights (default: `./`)
+- `--output_type`: the saving format, either `pth` or `huggingface`. Default: `pth`.
+- `--output_dir`: directory to save the consolidated model weights (default: `./`)
 - (optional) `--offload_dir`: for low-RAM users, please specify a offload directory
 
-*(Optional) If necessary, you can convert the `.pth` files generated in this step to HuggingFace format using the script in Step 1.*
+
+#### Multiple LoRA weights merging (applicable to Chinese-Alpaca-Plus)
+
+Merging Chinese-Alpaca-Plus requires two LoRA weights, namely Chinese-LLaMA-Plus-LoRA and Chinese-Alpaca-Plus-LoRA. To complete the merge, execute the following command:
+
+```bash
+python scripts/merge_llama_with_chinese_lora.py \
+    --base_model path_to_original_llama_hf_dir \
+    --lora_model path_to_chinese_llama_plus_lora,path_to_chinese_alpaca_plus_lora \
+    --output_type [pth|huggingface]
+    --output_dir path_to_output_dir 
+```
+
+Note that the `--lora_model` requires two LoRA models, separated by a comma. **The order of the two LoRA models is important**.
+
+The meaning of the each options is the same as those in **Single LoRA weight merging**.
