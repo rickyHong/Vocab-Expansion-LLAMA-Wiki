@@ -12,14 +12,14 @@
    - `torch`（1.12.0）⚠️ the checksum differs for torch 1.13.0 (and after), use with caution
    - `transformers`（4.28.1）
    - `sentencepiece`（0.1.97）
-   - `peft`（0.2.0）
+   - `peft`（0.3.0dev）
    - python >= 3.9
 
 ```bash
 pip install torch==1.12.0
 pip install transformers
 pip install sentencepiece
-pip install peft
+pip install git+https://github.com/huggingface/peft
 ```
 
  ```bash
