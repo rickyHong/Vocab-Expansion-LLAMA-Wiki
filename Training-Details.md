@@ -31,6 +31,8 @@ In the pre-training phase, the general Chinese corpora (consistent with the corp
 1. Stage One: Fix the parameters of the transformer part of the model and only train the embedding, adapting the newly added Chinese word vectors without disturbing the original model as much as possible.
 2. Stage Two: Use LoRA technology to add LoRA weights (adapter) to the model, and train the embedding while updating LoRA parameters.
 
+We release the pre-training code [scripts/run_clm_pt_with_peft.py](https://github.com/ymcui/Chinese-LLaMA-Alpaca/blob/main/scripts/run_clm_pt_with_peft.py) for reference. See [Pre-training Script](https://github.com/ymcui/Chinese-LLaMA-Alpaca/wiki/pretraining-script) for the detailed usage.
+
 ### Instruction Fine-tuning
 
 1. The task format of the instruction fine-tuning phase is basically the same as that of [Stanford Alpaca](https://github.com/tatsu-lab/stanford_alpaca). The training scheme also used LoRA for efficient fine-tuning and further increased the number of trainable parameters.
