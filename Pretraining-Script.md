@@ -46,11 +46,12 @@ python scripts/run_clm_pt_with_peft.py \
     --torch_dtype float16
 ```
 
-其中一些参数的含义不言自明。部分参数的解释如下：
-* `${pretrained_model}`: 原版LLaMA模型HuggingFace格式权重位置
-* `${chinese_tokenizer_path}`: Chinese-LLaMA tokenizer所在的目录
-* `${dataset_dir}`: 预训练数据的目录，可包含多个纯文本文件
-* `${--data_cache_dir}` 指定一个存放数据缓存文件的目录
+The meanings of most arguments are self-evident. Here are explanations for some of the arguments:
+
+* ${pretrained_model}: Location of the original LLaMA model in HuggingFace format.
+* ${chinese_tokenizer_path}: Directory where the Chinese-LLaMA tokenizer is located.
+* ${dataset_dir}: Directory of the pre-training data, which can contain multiple plain text files.
+* ${--data_cache_dir}: A directory to store data caching files.
 
 
 The hyperparameters listed here (especially the learning rate and parameters related to the total batch size) are for reference only. Please feel free to adjust them based your training data and hardware conditions.
