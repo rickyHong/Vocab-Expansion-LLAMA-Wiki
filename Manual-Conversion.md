@@ -82,6 +82,8 @@ python scripts/merge_llama_with_chinese_lora.py \
     --output_dir path_to_output_dir 
 ```
 
-Note that the `--lora_model` requires two LoRA models, separated by a comma. **The order of the two LoRA models is important**.
+Note that the `--lora_model` requires two LoRA models, separated by a comma. 
+
+⚠️**The order of the two LoRA models is important and cannot be reversed**.⚠️
 
 The meaning of the each options is the same as those in **Single LoRA weight merging**.
