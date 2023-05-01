@@ -1,4 +1,4 @@
-如果想在不安装其他库或Python包的情况下快速体验模型效果，可以使用[scripts/inference_hf.py](https://github.com/ymcui/Chinese-LLaMA-Alpaca/blob/main/scripts/inference_hf.py) 脚本启动非量化模型。该脚本支持CPU和GPU的单卡推理。以启动Chinese-Alpaca-7B模型为例，脚本运行方式如下（该方式无法加载Chinese-Alpaca-Plus，见**注意事项）：
+如果想在不安装其他库或Python包的情况下快速体验模型效果，可以使用[scripts/inference_hf.py](https://github.com/ymcui/Chinese-LLaMA-Alpaca/blob/main/scripts/inference_hf.py) 脚本启动非量化模型。该脚本支持CPU和GPU的单卡推理。以启动Chinese-Alpaca-7B模型为例，脚本运行方式如下（该方式无法加载Chinese-Alpaca-Plus，见下面的**注意事项**）：
 
 ```bash
 CUDA_VISIBLE_DEVICES={device_id} python scripts/inference_hf.py \
