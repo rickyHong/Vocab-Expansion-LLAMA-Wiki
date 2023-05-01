@@ -34,18 +34,18 @@ CUDA_VISIBLE_DEVICES={device_id} python scripts/inference_hf.py \
 - 因不同框架的解码实现细节有差异，该脚本并不能保证复现llama.cpp的解码效果
 - 该脚本仅为方便快速体验用，并未对多机多卡、低内存、低显存等情况等条件做任何优化
 - 如在CPU上运行7B模型推理，请确保有32GB内存；如在GPU上运行7B模型推理，请确保有20GB显存
-- inference_hf.py暂不支持从lora权重加载Chinese-Alpaca-Plus进行推理；如要进行Chinese-Alpaca-Plus进的推理，建议先合并模型，流程如下：
-1. 使用merge_llama_with_chinese_lora.py合并lora，生成完整的hf格式模型权重：
-```bash
-python merge_llama_with_chinese_lora.py \
-    --base_model path_to_hf_llama \
-    --lora_model path_to_chinese_llama_plus_lora,path_to_chinese_alpaca_plus_lora \
-    --output_type huggingface \
-    --output_dir path_to_merged_chinese_alpaca_plus
-```
-2. 使用inference_hf.py加载合并后的模型进行推理：
-```bash
-python inference_hf.py \
-    --base_model path_to_merged_chinese_alpaca_plus \
-    --with_prompt --interactive
-```
+- inference_hf.py暂不支持从lora权重加载Chinese-Alpaca-Plus进行推理；如要进行Chinese-Alpaca-Plus进的推理，请先合并模型，流程如下：
+  1. 使用merge_llama_with_chinese_lora.py合并lora，生成完整的hf格式模型权重：
+  ```bash
+  python scripts/merge_llama_with_chinese_lora.py \
+      --base_model path_to_hf_llama \
+      --lora_model path_to_chinese_llama_plus_lora,path_to_chinese_alpaca_plus_lora \
+      --output_type huggingface \
+      --output_dir path_to_merged_chinese_alpaca_plus
+  ```
+  2. 使用inference_hf.py加载合并后的模型进行推理：
+  ```bash
+  python scripts/inference_hf.py \
+      --base_model path_to_merged_chinese_alpaca_plus \
+      --with_prompt --interactive
+  ```
