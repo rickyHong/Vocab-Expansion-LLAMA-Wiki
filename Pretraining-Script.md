@@ -50,7 +50,7 @@ The meanings of most arguments are self-evident. Here are explanations for some 
 
 * ${pretrained_model}: Location of the original LLaMA model in HuggingFace format.
 * ${chinese_tokenizer_path}: Directory where the Chinese-LLaMA tokenizer is located.
-* ${dataset_dir}: Directory of the pre-training data, which can contain multiple plain text files.
+* ${dataset_dir}: Directory of the pre-training data, which can contain multiple plain text files which end with `txt`.
 * ${--data_cache_dir}: A directory to store data caching files.
 
 
