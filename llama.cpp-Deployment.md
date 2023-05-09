@@ -34,31 +34,18 @@ Convert the above `.pth` model weights to ggml's FP16 format, and generate a fil
 python convert.py zh-models/7B/
 ```
 
-Further quantize the FP16 model to 4-bit, and generate a quantized model file with the path `zh-models/7B/ggml-model-q4_0.bin`.
+Further quantize the FP16 model to 4-bit, and generate a quantized model file with the path `zh-models/7B/ggml-model-q4_0.bin`. For more quantization methods and their performances, please refer to the end of this wiki.
 
 ```bash
-./quantize ./zh-models/7B/ggml-model-f16.bin ./zh-models/7B/ggml-model-q4_0.bin 2
+./quantize ./zh-models/7B/ggml-model-f16.bin ./zh-models/7B/ggml-model-q4_0.bin q4_0
 ```
-
-#### About quantization parameters
-Here, we use the default `-t` param (default value: 4), using Chinese Alpaca-7B with Apple M1 Max. More details: [llama.cpp#PPL](https://github.com/ggerganov/llama.cpp#perplexity-measuring-model-quality)。
-| Param | Algorithm | Speed | Model Size | PPL | Note |
-|---|---|---|---|---|---|
-| 2 | q4_0 | 57ms/token | 4.31G | 25.7 | default |
-| 3 | q4_1 | 102ms/token | 5.17G | 24.5 | - |
-| 5 | q4_2 | 85ms/token | 4.31G | 24.8 |   |
-| 8 | q5_0 | 86ms/token | 4.74G | 22.4 |  |
-| 7 | q8_0 | 74ms/token | 7.75G | 21.8 |   |
-| - | f16 | 88ms/token | 13.77G | 21.8 |   |
-
-Note: we recommend use q8_0 version, which has a good tradeoff.
 
 ### Step 3: Load and start the model
 
 Run the `./main` binary file, with the `-m` command specifying the 4-bit quantized model (or loading the ggml-FP16 model). Below is an example of decoding parameters:
 
 ```bash
-./main -m zh-models/7B/ggml-model-q4_0.bin --color -f ./prompts/alpaca.txt -ins -c 2048 --temp 0.2 -n 256 --repeat_penalty 1.3
+./main -m zh-models/7B/ggml-model-q4_0.bin --color -f ./prompts/alpaca.txt -ins -c 2048 --temp 0.2 -n 256 --repeat_penalty 1.1
 ```
 
 Please enter your prompt after the `>`, use `\` as the end of the line for multi-line inputs. To view help and parameter instructions, please execute the `./main -h` command. Here's a brief introduction to several important parameters:
@@ -74,15 +61,33 @@ Please enter your prompt after the `>`, use `\` as the end of the line for multi
 --top_p, top_k control the sampling parameters
 ```
 
-#### About prediction speed
-It is not always faster with bigger `-t`.
-The following table shows the speed with different `-t` (M1 Max chips with 8 performance cores and 2 efficiency cores).
-It can be seen that the speed is the fastest when it is consistent with the number of cores, but it slows down when it exceeds this value.
-| param | Speed（7B-q4_0） | Speed（13B-q4_0） |
-|---|---|---|
-| 1 | 230ms/token | 434ms/token |
-| 2 | 110ms/token | 208ms/token |
-| 4 | 58ms/token | 111ms/token |
-| 6 | 44ms/token | 80ms/token |
-| 8 | **36ms/token** | **64ms/token** |
-| 10 | *112ms/token* | *202ms/token* | 
+### About quantization performance
+
+The table below provides reference statistical data for different quantization methods. The inference models used were Chinese Alpaca-Plus-7B and Alpaca-Plus-13B, and the testing was done on an M1 Max chip (8x performance cores, 2x efficiency cores). The reported speed refers to the "eval time", which is the speed of model response generation. For more information on quantization parameters, please refer to the [llama.cpp quantization table](https://github.com/ggerganov/llama.cpp#quantization).
+
+Takeaways:
+
+- The default quantization method is q4_0, which is the fastest but has the highest loss. Each method has its pros and cons, and the appropriate method should be selected according to the actual situation.
+- If resources are sufficient and speed requirements are not too strict, q8_0 can be used, which is similar to the performance of an F16 model.
+- It should be noted that F16 and q8_0 do not improve much in speed when the number of threads is increased.
+- The speed is the fastest when the number of threads `-t` is consistent with the number of physical cores. If it exceeds this number, the speed will actually slow down (on M1 Max, changing from 8 to 10 threads resulted in 3x slow down).
+
+#### 7B
+
+|                 |    F16 |   Q4_0 |   Q4_1 |   Q4_2 |   Q5_0 |   Q5_1 |   Q8_0 |
+| --------------- | -----: | -----: | -----: | -----: | -----: | -----: | -----: |
+| PPL             | 10.793 | 12.416 | 12.002 | 11.863 | 11.155 | 10.905 | 10.790 |
+| Size            | 13.77G |  4.31G |  5.17G |  4.31G |  4.74G |  5.17G |  7.75G |
+| ms/tok @ `-t 2` |    144 |    102 |    109 |    157 |    161 |    182 |    103 |
+| ms/tok @ `-t 4` |    123 |     55 |     60 |     83 |     87 |     96 |     72 |
+| ms/tok @ `-t 8` |    126 |     44 |     55 |     52 |     56 |     63 |     76 |
+
+#### 13B
+
+|                 | F16 | Q4_0 | Q4_1 | Q4_2 | Q5_0 | Q5_1 | Q8_0 |
+| --------------- | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
+| PPL             |      |      |      |      |      |      |      |
+| Size            |      |      |      |      |      |      |      |
+| ms/tok @ `-t 2` |        |       |      |      |      |      |       |
+| ms/tok @ `-t 4` |      |      |      |      |      |      |      |
+| ms/tok @ `-t 8` |      |      |      |      |      |      |      |
