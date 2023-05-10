@@ -36,3 +36,7 @@ Answer: Problem solved with the new merge script.
 ### Q8: Chinese-Alpaca-Plus does not show better performance than the others
 
 Answer: As we changed LoRA rank of Alpaca-Plus models, the base model should be LLaMA-Plus but not the original LLaMA. Please carefully read our guidelines for [merging Alpaca-Plus models](https://github.com/ymcui/Chinese-LLaMA-Alpaca/wiki/Manual-Conversion#multiple-lora-weights-merging-applicable-to-chinese-alpaca-plus).
+
+### Q9: The model does not perform well on NLU tasks, such as text classification.
+
+Answer: Unlike other Chinese LLMs, we specifically removed those NLU-like instruction data when training Alpaca models. For example, we removed the data that was created from NLU datasets and automatically converted to instruction-like data using templates. In you need to improve the model's NLU performance, please consider finetuning our models using those data.
