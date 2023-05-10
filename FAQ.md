@@ -30,3 +30,7 @@ Answer: If the model cannot understand Chinese and the generation speed is slow 
 ### Q7: Chinese-LLaMA 13B model cannot be launched with llama.cpp, reporting inconsistent dimensions.
 
 Answer: This is related to the fact that the 13B model is split into two files with different sizes. See [Issue#133](https://github.com/ymcui/Chinese-LLaMA-Alpaca/issues/133). Users with strong hands-on skills can try to solve this issue using the method mentioned in the issue. On the other hand, the Chinese-LLaMA model itself is not designed for dialogue or interaction, but rather to provide a foundation for further fine-tuning on Chinese instruction tasks or other tasks. Therefore, it is not recommended to load the Chinese-LLaMA model with llama.cpp.
+
+### Q8: Chinese-Alpaca-Plus does not show better performance than the others
+
+Answer: As we changed LoRA rank of Alpaca-Plus models, the base model should be LLaMA-Plus but not the original LLaMA. Please carefully read our guidelines for [merging Alpaca-Plus models](https://github.com/ymcui/Chinese-LLaMA-Alpaca/wiki/Manual-Conversion#multiple-lora-weights-merging-applicable-to-chinese-alpaca-plus).
