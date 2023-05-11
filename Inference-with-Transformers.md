@@ -36,3 +36,4 @@ Note:
 - Due to differences in decoding implementation details between different frameworks, this script cannot guarantee to reproduce the decoding effect of llama.cpp.
 - This script is for convenient and quick experience only, and has not been optimized for multi-machine, multi-card, low memory, low display memory, and other conditions.
 - When running 7B model inference on a CPU, make sure you have 32GB of memory; when running 7B model inference on a single GPU, make sure you have 20GB VRAM.
+- inference_hf.py does not currently support loading multiple LoRA weights. If you want to perform inference with Chinese-Alpaca-Plus, please merge the model with the LoRA weights first.
