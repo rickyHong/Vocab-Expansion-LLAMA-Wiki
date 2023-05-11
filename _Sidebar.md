@@ -26,5 +26,5 @@
 - **[System Performance](https://github.com/ymcui/Chinese-LLaMA-Alpaca/wiki/System-Performance)**
 - **[Training Details](https://github.com/ymcui/Chinese-LLaMA-Alpaca/wiki/Training-Details)**
   - [Pre-training Script](https://github.com/ymcui/Chinese-LLaMA-Alpaca/wiki/Pretraining-Script)
+  - [SFT Script](https://github.com/ymcui/Chinese-LLaMA-Alpaca/wiki/SFT-Script)
 - **[FAQ](https://github.com/ymcui/Chinese-LLaMA-Alpaca/wiki/FAQ)**
-
