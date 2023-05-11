@@ -57,7 +57,7 @@ The meanings of most arguments are self-evident. Here are explanations for some 
 
 * `${pretrained_model}`: Location of the Chinese-LLaMA model which has been merged with the LoRA weight (in HF format).
 * `${chinese_tokenizer_path}`: Directory where the Chinese-Alpaca tokenizer is located
-* `${dataset_dir}: Directory of the SFT data, which can contain one or more `json` files in the Stanford Alpaca format.
+* `${dataset_dir}`: Directory of the SFT data, which can contain one or more `json` files in the Stanford Alpaca format.
 * `${--validation_file}`: A single `json` file used as the development set, in the Stanford Alpaca format.
 
 Stanford Alpaca format:
