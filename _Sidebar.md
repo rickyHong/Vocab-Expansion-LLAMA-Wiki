@@ -10,6 +10,7 @@
 - **[系统效果](https://github.com/ymcui/Chinese-LLaMA-Alpaca/wiki/系统效果)**
 - **[训练细节](https://github.com/ymcui/Chinese-LLaMA-Alpaca/wiki/训练细节)**
   - [预训练脚本](https://github.com/ymcui/Chinese-LLaMA-Alpaca/wiki/预训练脚本)
+  - [指令精调脚本](https://github.com/ymcui/Chinese-LLaMA-Alpaca/wiki/指令精调脚本)
 - **[常见问题](https://github.com/ymcui/Chinese-LLaMA-Alpaca/wiki/常见问题)**
 
 
