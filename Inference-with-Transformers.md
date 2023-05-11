@@ -28,7 +28,8 @@ Parameter description:
 - `--interactive`: Launch interactively for multiple **single-round question-answer** sessions (this is not the contextual dialogue in llama.cpp).
 - `--data_file {file_name}`: In non-interactive mode, read the content of `file_name` line by line for prediction.
 - `--predictions_file {file_name}`: In non-interactive mode, write the predicted results in JSON format to `file_name`.
-
+- `--use_cpu`: Only use CPU for inference.
+- `--gpus`: the GPU id(s) to use, default 0. You can specify multiple GPUs, for instance `0,1,2`.
 Note:
 
 - Due to differences in decoding implementation details between different frameworks, this script cannot guarantee to reproduce the decoding effect of llama.cpp.
