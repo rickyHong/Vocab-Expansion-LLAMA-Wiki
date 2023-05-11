@@ -55,7 +55,6 @@ The meanings of most arguments are self-evident. Here are explanations for some 
 
 
 
-* `${pretrained_model}`: Location of the Chinese-LLaMA model which has been merged with the LoRA weight (in HF format).
 * `${chinese_tokenizer_path}`: Directory where the Chinese-Alpaca tokenizer is located
 * `${dataset_dir}`: Directory of the SFT data, which can contain one or more `json` files in the Stanford Alpaca format.
 * `${--validation_file}`: A single `json` file used as the development set, in the Stanford Alpaca format.
@@ -72,12 +71,14 @@ Stanford Alpaca format:
 
 If you want to continue training the LoRA weight of the Chinese-Alpaca model:
 
+* `${pretrained_model}`: The original LLaMA model in HF format (if continue training non-Plus model), **or** the Chinese-LLaMA model (in HF format) which has been merged with the Chinese-LLaMA-Plus-LoRA weight （if continue training Plus model）
 * `${peft_model}`: Location of the Chinese-Alpaca-LoRA weight and config
 * No need to specify `lora_rank`, `lora_alpha`, `lora_dropout`, `trainable` and `modules_to_save`
 * Set`--force_resize_embeddings True`
 
 If you want to train a completely new LoRA weight based on Chinese-LLaMA:
 
+* `${pretrained_model}`: the Chinese-LLaMA model (in HF format) which has been merged with the corresponding LoRA weight （no matter if continue training Plus model or not）
 * `${peft_model}`: Do not provide this parameter.
 * Specify `lora_rank`, `lora_alpha`, `lora_dropout`, `trainable` and `modules_to_save`
 * Set `--force_resize_embeddings False`
