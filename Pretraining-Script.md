@@ -48,10 +48,10 @@ python scripts/run_clm_pt_with_peft.py \
 
 The meanings of most arguments are self-evident. Here are explanations for some of the arguments:
 
-* ${pretrained_model}: Location of the original LLaMA model in HuggingFace format.
-* ${chinese_tokenizer_path}: Directory where the Chinese-LLaMA tokenizer is located.
-* ${dataset_dir}: Directory of the pre-training data, which can contain multiple plain text files which end with `txt`.
-* ${--data_cache_dir}: A directory to store data caching files.
+* `${pretrained_model}`: Location of the original LLaMA model in HuggingFace format.
+* `${chinese_tokenizer_path}`: Directory where the Chinese-LLaMA tokenizer is located.
+* `${dataset_dir}`: Directory of the pre-training data, which can contain multiple plain text files which end with `txt`.
+* `${--data_cache_dir}`: A directory to store data caching files.
 
 
 The hyperparameters listed here (especially the learning rate and parameters related to the total batch size) are for reference only. Please feel free to adjust them based your training data and hardware conditions.
