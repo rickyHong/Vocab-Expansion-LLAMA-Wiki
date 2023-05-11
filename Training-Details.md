@@ -38,6 +38,8 @@ We release the pre-training code [scripts/run_clm_pt_with_peft.py](https://githu
 1. The task format of the instruction fine-tuning phase is basically the same as that of [Stanford Alpaca](https://github.com/tatsu-lab/stanford_alpaca). The training scheme also used LoRA for efficient fine-tuning and further increased the number of trainable parameters.
 2. We follow the original prompt by [Stanford Alpaca](https://github.com/tatsu-lab/stanford_alpaca) that without "input". For the data that contains "input" values, we simply concatenate them in the form of`f"{instruction}+\n+{input}"`.
 
+We release the SFT code [scripts/run_clm_sft_with_peft.py](https://github.com/ymcui/Chinese-LLaMA-Alpaca/blob/main/scripts/run_clm_sft_with_peft.py) for reference. See [SFT Script](https://github.com/ymcui/Chinese-LLaMA-Alpaca/wiki/SFT-script) for the detailed usage.
+
 ### Training Data
 
 During the instruction fine-tuning phase, about 2M data were used for 7B model, and 3M data for 13B model. Details:
