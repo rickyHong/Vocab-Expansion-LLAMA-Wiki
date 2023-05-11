@@ -33,6 +33,6 @@
 
 ### 4. **[Training Details](https://github.com/ymcui/Chinese-LLaMA-Alpaca/wiki/Training-Details)**
   - [Pre-training Script](https://github.com/ymcui/Chinese-LLaMA-Alpaca/wiki/Pretraining-script)
+  - [SFT Script](https://github.com/ymcui/Chinese-LLaMA-Alpaca/wiki/SFT-script)
 ### 5. **[FAQ](https://github.com/ymcui/Chinese-LLaMA-Alpaca/wiki/FAQ)**
-
 
