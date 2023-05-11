@@ -78,7 +78,7 @@ If you want to continue training the LoRA weight of the Chinese-Alpaca model:
 
 If you want to train a completely new LoRA weight based on Chinese-LLaMA:
 
-* `${pretrained_model}`: the Chinese-LLaMA model (in HF format) which has been merged with the corresponding LoRA weight （no matter if continue training Plus model or not）
+* `${pretrained_model}`: the Chinese-LLaMA model (in HF format) which has been merged with the corresponding LoRA weight （no matter if it is Plus model or not）
 * `${peft_model}`: Do not provide this parameter.
 * Specify `lora_rank`, `lora_alpha`, `lora_dropout`, `trainable` and `modules_to_save`
 * Set `--force_resize_embeddings False`
