@@ -23,6 +23,8 @@ Follow the wizard to configure the model. In this example, choose the Alpaca mod
 
 Name the model, choose an avatar, and select the appropriate format from the Format dropdown list: PyTorch format (.pth extension) or GGML format (.bin extension). Specify the model path and model size. The GGML format is the model format obtained from converting with llama.cpp. For more information, refer to [llama.cpp conversion](https://github.com/ymcui/Chinese-LLaMA-Alpaca/wiki/llama.cpp-Deployment).
 
+⚠️ LlamaChat does not support the latest quantization format, such as Q5, Q8.
+
 <img width="620" alt="image" src="https://user-images.githubusercontent.com/16095339/232356838-1179e76c-e19d-4ffc-afdb-d2495eb5d657.png">
 
 ### Step 4: Chat!
