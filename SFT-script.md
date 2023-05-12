@@ -20,7 +20,7 @@ python run_clm_sft_with_peft.py \
     --do_train \
     --do_eval \
     --seed $RANDOM \
-    --fp16
+    --fp16 \
     --max_steps ${training_steps} \
     --lr_scheduler_type cosine \
     --leraning_rate ${lr} \
