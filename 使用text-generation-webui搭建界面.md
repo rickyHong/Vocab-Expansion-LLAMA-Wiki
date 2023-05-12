@@ -33,7 +33,7 @@ shared.model.resize_token_embeddings(len(shared.tokenizer))
 shared.model = PeftModel.from_pretrained(shared.model, Path(f"{shared.args.lora_dir}/{lora_name}"), **params)
 ```
 
-#### Step 5: 接下来就可以愉快的运行了，参考[webui using LoRAs](https://github.com/oobabooga/text-generation-webui/wiki/Using-LoRAs)，我们推荐直接运行合并后的chinese-alpaca-7b，相对加载两个权重推理速度会有较大的提升
+#### Step 5: 接下来就可以愉快的运行了，参考[webui using LoRAs](https://github.com/oobabooga/text-generation-webui/blob/main/docs/Using-LoRAs.md)，我们推荐直接运行合并后的chinese-alpaca-7b，相对加载两个权重推理速度会有较大的提升
 ```bash
 python server.py --model llama-7b-hf --lora chinese-alpaca-lora-7b --cpu
 ```
