@@ -20,20 +20,20 @@ ls models/llama-7b-hf
 pytorch_model-00001-of-00002.bin pytorch_model-00002-of-00002.bin config.json pytorch_model.bin.index.json generation_config.json
 ```
 
-#### Step 3: 复制lora权重的tokenizer到models/llama-7b-hf下(webui默认从`./models`下加载tokenizer.model,因此需使用扩展中文词表后的tokenizer.model)
+#### Step 4: 复制lora权重的tokenizer到models/llama-7b-hf下(webui默认从`./models`下加载tokenizer.model,因此需使用扩展中文词表后的tokenizer.model)
 ```bash
 cp loras/chinese-alpaca-lora-7b/tokenizer.model models/llama-7b-hf/
 cp loras/chinese-alpaca-lora-7b/special_tokens_map.json models/llama-7b-hf/
 cp loras/chinese-alpaca-lora-7b/tokenizer_config.json models/llama-7b-hf/
 ```
 
-#### Step 4: 修改/modules/LoRA.py文件，在`PeftModel.from_pretrained`方法之前添加一行代码修改原始llama的embed_size
+#### Step 5: 修改/modules/LoRA.py文件，在`PeftModel.from_pretrained`方法之前添加一行代码修改原始llama的embed_size
 ```bash
 shared.model.resize_token_embeddings(len(shared.tokenizer))
 shared.model = PeftModel.from_pretrained(shared.model, Path(f"{shared.args.lora_dir}/{lora_name}"), **params)
 ```
 
-#### Step 5: 接下来就可以愉快的运行了，参考[webui using LoRAs](https://github.com/oobabooga/text-generation-webui/blob/main/docs/Using-LoRAs.md)，我们推荐直接运行合并后的chinese-alpaca-7b，相对加载两个权重推理速度会有较大的提升
+#### Step 6: 接下来就可以愉快的运行了，参考[webui using LoRAs](https://github.com/oobabooga/text-generation-webui/blob/main/docs/Using-LoRAs.md)，我们推荐直接运行合并后的chinese-alpaca-7b，相对加载两个权重推理速度会有较大的提升
 ```bash
 python server.py --model llama-7b-hf --lora chinese-alpaca-lora-7b --cpu
 ```
