@@ -48,7 +48,7 @@ During the instruction fine-tuning phase, about 2M data were used for 7B model, 
 | Chinese-English Translation            | 500K | [link](https://github.com/brightmart/nlp_chinese_corpus#5翻译语料translation2019zh) | sampled and cleaned from original dataset                 |
 | pCLUE              | 300K |        [link](https://github.com/CLUEbenchmark/pCLUE)        | sampled and cleaned from original dataset                  |
 | Stanford Alpaca data | 50K  |     [link](https://github.com/tatsu-lab/stanford_alpaca)     |  Original training data of Stanford Alpaca                               |
-| Stanford Alpaca data (Chinese) | 50K  |                 Provided in our proj => [link](https://github.com/ymcui/Chinese-LLaMA-Alpaca/blob/main/data)                 | We translate original data into Chinese using ChatGPT  |
+| Stanford Alpaca data (Chinese) | 50K  |                 [link](https://github.com/ymcui/Chinese-LLaMA-Alpaca/blob/main/data)                 | We translate original data into Chinese using ChatGPT  |
 | Self-instruction data   | 1-2M |                         N/A                        | We use ChatGPT API to get these data, see below               |
 
 This project provides a script `script/crawl_prompt.py` for dynamically generating prompts of different domains and instruction types.
