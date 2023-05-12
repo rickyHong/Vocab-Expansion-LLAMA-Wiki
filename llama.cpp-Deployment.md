@@ -52,7 +52,8 @@ Please enter your prompt after the `>`, use `\` as the end of the line for multi
 
 ```
 -c controls the length of context, larger values allow for longer dialogue history to be referenced
--ins activates the conversation mode for the ChatGPT class
+-ins activates the instruction mode (similar to ChatGPT)
+-f load prompt template, please use prompts/alpaca.txt for alpaca models
 -n controls the maximum length of generated responses
 -b batch size
 -t number of threads
@@ -60,6 +61,8 @@ Please enter your prompt after the `>`, use `\` as the end of the line for multi
 --temp is the temperature coefficient, lower values result in less randomness in the response, and vice versa
 --top_p, top_k control the sampling parameters
 ```
+
+Please refer to official guidelines for further information: [https://github.com/ggerganov/llama.cpp/tree/master/examples/main](https://github.com/ggerganov/llama.cpp/tree/master/examples/main)
 
 ### About quantization performance
 
