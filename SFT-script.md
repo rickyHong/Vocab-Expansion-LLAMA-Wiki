@@ -1,4 +1,7 @@
-（**Under Construction**）
+### ⚠️Important⚠️
+
+**Due to frequent changes in the Peft library, this code is only applicable to specific versions of Peft. Please install [Peft commit id 13e53fc](https://github.com/huggingface/peft/tree/13e53fc) from source. Using other versions of Peft may result in undesirable training behavior and results.
+
 
 Enter the `scripts` directory of the project, and run `bash run_sft.sh` to start instruction fine-tuning (use a single GPU by default). Users should edit the script set value of parameters. The contents of `run_sft.sh` are as follows:
 
@@ -123,8 +126,3 @@ torchrun \
   run_clm_sft_with_peft.py \
     ...
 ```
-
-
-### ⚠️Important⚠️
-
-**Due to frequent changes in the Peft library, this code is only applicable to specific versions of Peft. Please install [Peft commit id 13e53fc](https://github.com/huggingface/peft/tree/13e53fc) from source. Using other versions of Peft may result in undesirable training behavior and results.
