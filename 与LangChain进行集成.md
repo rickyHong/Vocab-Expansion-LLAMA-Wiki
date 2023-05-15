@@ -5,14 +5,13 @@
 ### 如何在LangChain中使用Chinese-Alpaca？
 
 因为将LoRA权重合并进LLaMA后的模型与原版LLaMA除了词表不同之外结构上没有其他区别，因此可以参考任何基于LLaMA的LangChain教程进行集成。
-
 以下文档通过两个示例，分别介绍在LangChain中使用Chinese-Alpaca实现（1）检索式问答；（2）摘要生成 两个任务的方法。
-
 例子中的超参、prompt模版均未调优，仅供演示参考用。关于LangChain的更详细的使用说明，请参见其[官方文档](https://docs.langchain.com/docs/)。
 
 
 ### 一、准备工作
-#### Step 1: 克隆LangChain并安装必要的依赖
+
+#### Step 1: 环境准备
 
 ```
 git clone https://github.com/hwchase17/langchain
