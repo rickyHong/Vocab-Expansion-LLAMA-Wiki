@@ -16,7 +16,7 @@
 
 ### 一、准备工作
 
-#### Step 1: 环境准备
+#### 环境准备
 
 ```
 git clone https://github.com/hwchase17/langchain
@@ -25,7 +25,7 @@ pip install -e .
 pip install sentence_transformers faiss-cpu
 ```
 
-#### Step2 : 模型准备
+#### 模型准备
 
 参考[手动模型合并与转换](https://github.com/ymcui/Chinese-LLaMA-Alpaca/wiki/%E6%89%8B%E5%8A%A8%E6%A8%A1%E5%9E%8B%E5%90%88%E5%B9%B6%E4%B8%8E%E8%BD%AC%E6%8D%A2 "Markdown")，合并模型生成HF格式的Chinese-Alpaca模型权重，并将模型保存至本地。
 在检索式问答中，LangChain通过问句与文档内容的相似性匹配，来选取文档中与问句最相关的部分作为上下文，与问题组合生成LLM的输入。因此，需要准备一个合适的embedding model用于匹配过程中的文本/问题向量化。本文以[GanymedeNil/text2vec-large-chinese](https://huggingface.co/GanymedeNil/text2vec-large-chinese/tree/main "Markdown")为例进行说明（实际上，也可以根据实际需要选择其他合适的embedding model）。
