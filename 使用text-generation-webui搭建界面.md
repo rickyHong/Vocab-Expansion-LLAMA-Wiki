@@ -24,8 +24,8 @@ cp loras/chinese-alpaca-lora-7b/tokenizer_config.json models/llama-7b-hf/
 ```
 在`PeftModel.from_pretrained`方法之前添加一行代码修改原始llama的embed_size
 ```bash
-**shared.model.resize_token_embeddings(len(shared.tokenizer))**
-shared.model = PeftModel.from_pretrained(shared.model, Path(f"{shared.args.lora_dir}/{lora_name}"), **params)
+shared.model.resize_token_embeddings(len(shared.tokenizer))
+shared.model = PeftModel.from_pretrained(shared.model, Path(f"{shared.args.lora_dir}/{lora_name}"), **params)  # 该行源代码中就有，无需改动
 ```
 ### Step 3: 加载模型并启动webui
 运行以下命令即可与chinese-llama/alpaca对话了。
