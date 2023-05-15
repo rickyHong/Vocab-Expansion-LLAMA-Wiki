@@ -16,7 +16,7 @@ adapter_config.json  adapter_model.bin  special_tokens_map.json  tokenizer_confi
 ls models/llama-7b-hf
 pytorch_model-00001-of-00002.bin pytorch_model-00002-of-00002.bin config.json pytorch_model.bin.index.json generation_config.json
 ```
-然后复制lora权重的tokenizer到models/llama-7b-hf下并修改/modules/LoRA.py文件(webui默认从`./models`下加载tokenizer.model,因此需使用扩展中文词表后的tokenizer.model)
+然后复制lora权重的tokenizer到`models/llama-7b-hf`下并修改`/modules/LoRA.py`文件(webui默认从`./models`下加载tokenizer.model,因此需使用扩展中文词表后的tokenizer.model)
 ```bash
 cp loras/chinese-alpaca-lora-7b/tokenizer.model models/llama-7b-hf/
 cp loras/chinese-alpaca-lora-7b/special_tokens_map.json models/llama-7b-hf/
