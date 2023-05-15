@@ -29,7 +29,7 @@ shared.model = PeftModel.from_pretrained(shared.model, Path(f"{shared.args.lora_
 ```
 
 ### Step 3:Load the model and start webui
-You can now run the tool. 
+Run the following command to talk to chinese-llama/alpaca
 ```
 python server.py --model llama-7b-hf --lora chinese-alpaca-lora-7b --cpu
 ```
