@@ -1,6 +1,8 @@
 ### 什么是LangChain？
 
-[LangChain](https://github.com/hwchase17/langchain "Markdown")是一个用于协助开发由LLM驱动的应用程序的框架，具有较丰富的使用场景与配置，支持多种LLM模型接口。
+[LangChain](https://github.com/hwchase17/langchain "Markdown")是一个用于开发由LLM驱动的应用程序的框架，旨在帮助开发人员使用LLM构建端到端的应用程序。
+
+LangChain提供了一套组件和接口，通过组件的组合，开发人员可以方便地设计与搭建诸如问答、摘要、聊天机器人、代码理解、信息提取等多种基于LLM能力的应用程序。
 
 ### 如何在LangChain中使用Chinese-Alpaca？
 
