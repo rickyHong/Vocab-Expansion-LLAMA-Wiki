@@ -24,7 +24,6 @@ gradient_accumulation_steps=1
 output_dir=output_dir
 peft_model=path/to/peft/model/dir
 validation_file=validation_file_name
-force_resize_embeddings=True # True or False
 
 deepspeed_config_file=ds_zero2_no_offload.json
 
@@ -68,7 +67,6 @@ torchrun --nnodes 1 --nproc_per_node 1 run_clm_sft_with_peft.py \
     --torch_dtype float16 \
     --validation_file ${validation_file} \
     --peft_path ${peft_model} \
-    --force_resize_embeddings ${force_resize_embeddings} \
     --gradient_checkpointing \
     --ddp_find_unused_parameters False
 ```
@@ -97,7 +95,6 @@ Configuration:
   
   * No need to specify `--lora_rank`, `--lora_alpha`, `--lora_dropout`, `--trainable` and `--modules_to_save`
   
-  * Set`--force_resize_embeddings True`
 
 * If you want to train a completely new LoRA weight based on Chinese-LLaMA:
 
@@ -107,7 +104,6 @@ Configuration:
 
   * Specify `--lora_rank`, `--lora_alpha`, `--lora_dropout`, `--trainable` and `--modules_to_save`
 
-  * Set `--force_resize_embeddings False`
 
 
 
