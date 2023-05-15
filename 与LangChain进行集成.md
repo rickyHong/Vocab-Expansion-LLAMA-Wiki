@@ -86,3 +86,15 @@ python langchain_sum.py \
 # 中间输出信息省略
 > 李白是唐朝注意的浪漫主义诗人，被尊称为“诗仙”、“诗侠”、“酒仙”、“谪仙人“等称号。虽然性格桀骜不驯，但他留下了许多脍炙人口的诗歌作品，这些作品流传至今，被广泛传颂。尽管他只待长安不到两年就离开，但在晚年，他结识了杜甫和高适，并成为好友。然而，安史之乱导致他被捕入狱，最终在63岁去世，虽然他的大部分作品已经散佚，但他留下的九百多首诗歌仍然广受赞誉。
 ```
+
+### 已知问题
+
+LangChain中默认会初始化FastTokenizer，而这一步会非常慢，目前无法通过传参的方式修改这一行为。因此建议修改LangChain中`HuggingFacePipeline.from_model_id`中的代码，将
+```python
+tokenizer = AutoTokenizer.from_pretrained(model_id, **_model_kwargs)
+```
+修改为
+```python
+tokenizer = AutoTokenizer.from_pretrained(model_id, use_fast=False, **_model_kwargs)
+```
+以缓解此问题。
