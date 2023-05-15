@@ -16,13 +16,13 @@ adapter_config.json  adapter_model.bin  special_tokens_map.json  tokenizer_confi
 ls models/llama-7b-hf
 pytorch_model-00001-of-00002.bin pytorch_model-00002-of-00002.bin config.json pytorch_model.bin.index.json generation_config.json
 ```
-Copy the tokenizer of lora weights to the models/llama-7b-hf directory and modify `/modules/LoRA.py` file
+Copy the tokenizer of lora weights to the models/llama-7b-hf directory and modify '/modules/LoRA.py'
 ```
 cp loras/chinese-alpaca-lora-7b/tokenizer.model models/llama-7b-hf/
 cp loras/chinese-alpaca-lora-7b/special_tokens_map.json models/llama-7b-hf/
 cp loras/chinese-alpaca-lora-7b/tokenizer_config.json models/llama-7b-hf/
 ```
-Add a line before the `PeftModel.from_pretrained` method to modify the embed_size of the original llama
+Modifying '/modules/LoRA.py' is as simple as adding a line before the 'PeftModel.from_pretrained' method
 ```
 shared.model.resize_token_embeddings(len(shared.tokenizer))
 shared.model = PeftModel.from_pretrained(shared.model, Path(f"{shared.args.lora_dir}/{lora_name}"), **params)
