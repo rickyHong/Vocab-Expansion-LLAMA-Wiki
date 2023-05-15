@@ -2,7 +2,7 @@ We provide two scripts to use the native Transformers for inference: a command-l
 
 Taking the loading of the Chinese-Alpaca-7B model as an example (for loading Plus models, refer to **Loading Chinese-Alpaca-Plus** below):
 
-#### Command-line Interface
+### Command-line Interface
 
 ```bash
 python scripts/inference_hf.py \
@@ -33,7 +33,7 @@ Parameter description:
 - `--use_cpu`: Only use CPU for inference.
 - `--gpus {gpu_ids}`: the GPU id(s) to use, default 0. You can specify multiple GPUs, for instance `0,1,2`.
 
-#### Web Graphical Interface
+### Web Graphical Interface
 
 This method will start a web frontend page for interaction and support multi-turn conversations. In addition to `Transformers`, you need to install `Gradio` and `mdtex2html`:
 
@@ -64,7 +64,7 @@ Parameter description:
 * `--use_cpu`: Only use CPU for inference.
 * `--gpus {gpu_ids}`: the GPU id(s) to use, default 0. You can specify multiple GPUs, for instance `0,1,2`.
 
-#### Loading Chinese-Alpaca-Plus
+### Loading Chinese-Alpaca-Plus
 
 Currently, neither of the scripts supports directly loading Chinese-Alpaca-Plus for inference from LoRA weights. If you want to perform inference using Chinese-Alpaca-Plus, please follow the steps below:
 
@@ -83,7 +83,7 @@ python scripts/inference_hf.py \
     --with_prompt --interactive
 ```
 
-#### Note
+### Note
 
 - Due to differences in decoding implementation details between different frameworks, this script cannot guarantee to reproduce the decoding effect of llama.cpp.
 - This script is for convenient and quick experience only, and has not been optimized for fast inference.

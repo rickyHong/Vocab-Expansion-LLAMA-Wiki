@@ -2,7 +2,7 @@
 
 以加载Chinese-Alpaca-7B模型为例（加载Chinese-Alpaca-Plus的方式见下面的**加载Chinese-Alpaca-Plus**）说明启动方式。
 
-#### 命令行交互形式
+### 命令行交互形式
 ```bash
 python scripts/inference_hf.py \
     --base_model path_to_original_llama_hf_dir \
@@ -33,7 +33,7 @@ python scripts/inference_hf.py \
 * `--use_cpu`: 仅使用CPU进行推理
 * `--gpus {gpu_ids}`: 指定使用的GPU设备编号，默认为0。如使用多张GPU，以逗号分隔，如`0,1,2`
 
-#### Web图形界面交互形式
+### Web图形界面交互形式
 
 该方式将启动Web前端页面进行交互，并且支持多轮对话。除transformers之外，需要安装gradio和mdtex2html：
 
@@ -64,7 +64,7 @@ python scripts/gradio_demo.py --base_model path_to_merged_alpaca_hf_dir
 * `--use_cpu`: 仅使用CPU进行推理
 * `--gpus {gpu_ids}`: 指定使用的GPU设备编号，默认为0。如使用多张GPU，以逗号分隔，如`0,1,2`
 
-#### 加载Chinese-Alpaca-Plus
+### 加载Chinese-Alpaca-Plus
 
 目前两个脚本都不支持直接从LoRA权重加载Chinese-Alpaca-Plus进行推理；如要进行Chinese-Alpaca-Plus进的推理，请先合并模型，流程如下：
 
@@ -83,7 +83,7 @@ python scripts/inference_hf.py \
     --with_prompt --interactive
 ```
 
-#### 注意事项
+### 注意事项
 
 - 因不同框架的解码实现细节有差异，该脚本并不能保证复现llama.cpp的解码效果
 - 该脚本仅为方便快速体验用，并未对推理速度做优化
