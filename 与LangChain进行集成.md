@@ -22,6 +22,7 @@
 git clone https://github.com/hwchase17/langchain
 cd langchain
 pip install -e . 
+pip install sentence_transformers faiss-cpu
 ```
 
 #### Step2 : 模型准备
