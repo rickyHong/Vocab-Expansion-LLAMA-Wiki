@@ -90,16 +90,20 @@ Stanford Alpaca format:
 Configuration:
 
 * If you want to continue training the LoRA weight of the Chinese-Alpaca model:
-  - `model_name_or_path`: The original LLaMA model in HF format (if continue training non-Plus model), **or** the Chinese-LLaMA model (in HF format) which has been merged with the Chinese-LLaMA-Plus-LoRA weight （if continue training Plus model）
-  - `peft_path`: Location of the Chinese-Alpaca-LoRA weight and config
+  - `--model_name_or_path`: The original LLaMA model in HF format (if continue training non-Plus model), **or** the Chinese-LLaMA model (in HF format) which has been merged with the Chinese-LLaMA-Plus-LoRA weight （if continue training Plus model）
+  - `--peft_path`: Location of the Chinese-Alpaca-LoRA weight and config
   
   * No need to specify `--lora_rank`, `--lora_alpha`, `--lora_dropout`, `--trainable` and `--modules_to_save`
   
+
 * If you want to train a completely new LoRA weight based on Chinese-LLaMA:
 
   * `--model_name_or_path`: the Chinese-LLaMA model (in HF format) which has been merged with the corresponding LoRA weight （no matter if it is Plus model or not）
-  * `peft_path`: Do not provide this parameter and remove `--peft_path` from the script
+
+  * `--peft_path`: Do not provide this parameter and remove `--peft_path` from the script
+
   * Specify `--lora_rank`, `--lora_alpha`, `--lora_dropout`, `--trainable` and `--modules_to_save`
+
 
 
 
