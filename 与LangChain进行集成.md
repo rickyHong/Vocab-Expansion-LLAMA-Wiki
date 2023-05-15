@@ -89,7 +89,7 @@ python langchain_sum.py \
 
 ### 已知问题
 
-LangChain中默认会初始化FastTokenizer，而这一步在某些transformers+tokenizers版本中会非常慢，目前无法通过传参的方式修改这一行为。因此如果遇到在`loading LLM...`处卡了很久的问题，可修改LangChain中`HuggingFacePipeline.from_model_id`中的相关代码，将其中tokenizer的初始化部分
+LangChain中默认会初始化FastTokenizer，而这一步在某些环境中会非常慢，目前无法通过传参的方式修改这一行为。因此如果在`loading LLM...`卡住，可修改LangChain中`HuggingFacePipeline.from_model_id`中的相关代码，将其中tokenizer的初始化部分
 ```python
 tokenizer = AutoTokenizer.from_pretrained(model_id, **_model_kwargs)
 ```
