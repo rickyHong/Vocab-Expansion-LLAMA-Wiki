@@ -22,7 +22,7 @@ cp loras/chinese-alpaca-lora-7b/tokenizer.model models/llama-7b-hf/
 cp loras/chinese-alpaca-lora-7b/special_tokens_map.json models/llama-7b-hf/
 cp loras/chinese-alpaca-lora-7b/tokenizer_config.json models/llama-7b-hf/
 ```
-Modifying '/modules/LoRA.py' is as simple as adding a line before the 'PeftModel.from_pretrained' method
+Modifying `/modules/LoRA.py` is as simple as adding a line before the `PeftModel.from_pretrained` method
 ```
 shared.model.resize_token_embeddings(len(shared.tokenizer))
 shared.model = PeftModel.from_pretrained(shared.model, Path(f"{shared.args.lora_dir}/{lora_name}"), **params)
