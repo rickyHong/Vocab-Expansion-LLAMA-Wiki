@@ -90,7 +90,7 @@ Running example:
 
 ### Known Issue
 
-LangChain initializes a FastTokenizer by default. However, this step can be very slow in certain environments. Currently, it is not possible to change this behavior by passing parameters. Therefore, If your program gets stuck at `loading LLM...`, you can change the tokenizer initialization code in `HuggingFacePipeline.from_model_id`
+LangChain initializes a FastTokenizer by default. However, this step can be very slow in certain environments. Currently, it is not possible to change this behavior by passing parameters. Therefore, If your program gets stuck at `loading LLM...`, you can change the tokenizer initialization code in `langchain.HuggingFacePipeline.from_model_id`
 
 ```python
 tokenizer = AutoTokenizer.from_pretrained(model_id, **_model_kwargs)
