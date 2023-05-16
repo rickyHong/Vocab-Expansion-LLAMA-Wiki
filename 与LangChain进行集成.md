@@ -38,7 +38,7 @@ pip install sentence_transformers faiss-cpu
 cd scripts/langchain_demo
 python langchain_qa.py \
   --embedding_path text2vec-large-chinese \
-  --model_path chinese-alpaca-plus-7b-merged-hf
+  --model_path chinese-alpaca-plus-7b-merged-hf \
   --file_path doc.txt \
   --chain_type refine
 ```
@@ -67,7 +67,7 @@ python langchain_qa.py \
 ```
 cd scripts/langchain_demo
 python langchain_sum.py \
-  --model_path chinese-alpaca-plus-7b-merged-hf
+  --model_path chinese-alpaca-plus-7b-merged-hf \
   --file_path doc.txt \
   --chain_type refine
 ```
