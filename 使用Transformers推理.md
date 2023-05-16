@@ -39,7 +39,7 @@ python scripts/inference_hf.py \
 
 ```bash
 pip install gradio
-pip install mdtext2html
+pip install mdtex2html
 ```
 
 启动命令如下：
