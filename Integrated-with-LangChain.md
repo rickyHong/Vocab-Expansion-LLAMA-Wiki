@@ -44,7 +44,7 @@ python langchain_qa.py \
   --chain_type refine
 ```
 
-Parameter Description:
+Parameter description:
 
 * `--embedding_path`: Directory where the embedding model is located.
 * `--model_path`: Directory where the merged Chinese-Alpaca model is located.
@@ -73,11 +73,11 @@ python langchain_sum.py \
   --chain_type refine
 ```
 
-Parameter Description:
+Parameter description:
 
 * `--model_path`: Directory where the merged Chinese-Alpaca model is located.
 * `--file_path`: Document to be summarized.
-* `--chain_type`: `refine`(default) or`stuff`, which represents different chains. For detailed explanations, refer to[here](https://docs.langchain.com/docs/components/chains/index_related_chains)。In simple terms, `stuff` is suitable for shorter documents, while `refine` is suitable for longer documents.
+* `--chain_type`: `refine`(default) or`stuff`, which represents different chains. For detailed explanations, refer to [here](https://docs.langchain.com/docs/components/chains/index_related_chains)。In simple terms, `stuff` is suitable for shorter documents, while `refine` is suitable for longer documents.
 * `--gpus {gpu_ids}`: the GPU id(s) to use, default 0. You can specify multiple GPUs, for instance `0,1,2`.
 
 Running example:
@@ -101,3 +101,4 @@ to
 ```python
 tokenizer = AutoTokenizer.from_pretrained(model_id, use_fast=False, **_model_kwargs)
 ```
+to avoid converting to FastTokenizer.
