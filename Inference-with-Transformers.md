@@ -39,7 +39,7 @@ This method will start a web frontend page for interaction and support multi-tur
 
 ```bash
 pip install gradio
-pip install mdtext2html
+pip install mdtex2html
 ```
 
 The launch command:
