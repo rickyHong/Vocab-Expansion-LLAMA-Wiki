@@ -39,7 +39,7 @@ This task utilizes LLM to perform automatic question answering for specific docu
 cd scripts/langchain_demo
 python langchain_qa.py \
   --embedding_path text2vec-large-chinese \
-  --model_path chinese-alpaca-plus-7b-merged-hf
+  --model_path chinese-alpaca-plus-7b-merged-hf \
   --file_path doc.txt \
   --chain_type refine
 ```
@@ -68,7 +68,7 @@ This task utilizes LLM to generate summarizations of given documents, helping to
 ```
 cd scripts/langchain_demo
 python langchain_sum.py \
-  --model_path chinese-alpaca-plus-7b-merged-hf
+  --model_path chinese-alpaca-plus-7b-merged-hf \
   --file_path doc.txt \
   --chain_type refine
 ```
