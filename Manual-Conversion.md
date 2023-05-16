@@ -54,7 +54,7 @@ Execute the following command:
 python scripts/merge_llama_with_chinese_lora.py \
     --base_model path_to_original_llama_hf_dir \
     --lora_model path_to_chinese_llama_or_alpaca_lora \
-    --output_type [pth|huggingface]
+    --output_type [pth|huggingface] \
     --output_dir path_to_output_dir 
 ```
 where:
