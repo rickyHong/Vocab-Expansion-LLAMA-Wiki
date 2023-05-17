@@ -45,7 +45,7 @@ python langchain_qa.py \
 
 参数说明：
 
-* `--embedding_path`: embedding model所在目录或或模型名
+* `--embedding_path`: 下载至本地的embedding model所在目录（如`text2vec-large-chinese`）或HuggingFace模型名（如`GanymedeNil/text2vec-large-chinese`）
 * `--model_path`: 合并后的Alpaca模型所在目录
 * `--file_path`: 待进行检索与提问的文档
 * `--chain_type`: 可以为`refine`(默认)或`stuff`，为两种不同的chain，详细解释见[这里](https://docs.langchain.com/docs/components/chains/index_related_chains)。简单来说，stuff适用于较短的篇章，而refine适用于较长的篇章。
