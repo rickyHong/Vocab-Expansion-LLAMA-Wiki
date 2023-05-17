@@ -83,6 +83,10 @@ The meanings of most arguments are self-evident. Here are explanations for some 
 
 The hyperparameters listed here (especially the learning rate and parameters related to the total batch size) are for reference only. Please feel free to adjust them based your training data and hardware conditions.
 
+VRAM-saving tips:
+
+* If the VRAM is insufficient, you can remove --modules_to_save ${modules_to_save} \ from the script. This will exclude training for embed_tokens and lm_head (which have large parameters) and only train the LoRA parameters, thus saving memory.
+
 
 To launch with multi-node and multi-GPU:
 ```bash
