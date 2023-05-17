@@ -86,7 +86,7 @@ The hyperparameters listed here (especially the learning rate and parameters rel
 VRAM-saving tips:
 
 * If the VRAM is insufficient, you can remove `--modules_to_save ${modules_to_save} \` from the script. This will exclude training for embed_tokens and lm_head (which have large parameters) and only train the LoRA parameters, thus saving memory (It is suggested to experiment based on Chinese-LLaMA instead of excluding the training of embed_tokens and lm_head from the pre-training stage).
-
+* If errors occur in the program after executing the previous step, please remove `--gradient_checkpointing \` and try again.
 
 To launch with multi-node and multi-GPU:
 ```bash
