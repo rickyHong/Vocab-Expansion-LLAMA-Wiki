@@ -46,7 +46,7 @@ python langchain_qa.py \
 
 Parameter description:
 
-* `--embedding_path`: Directory where the embedding model is located.
+* `--embedding_path`: Directory where the embedding model is located, or the model_id on the HuggingFace Hub.
 * `--model_path`: Directory where the merged Chinese-Alpaca model is located.
 * `--file_path`: Document for retrieval QA.
 * `--chain_type`: `refine`(default) or`stuff`, which represents different chains. For detailed explanations, refer to [here](https://docs.langchain.com/docs/components/chains/index_related_chains)。In simple terms, `stuff` is suitable for shorter documents, while `refine` is suitable for longer documents.
