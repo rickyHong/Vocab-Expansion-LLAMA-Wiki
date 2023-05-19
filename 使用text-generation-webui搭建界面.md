@@ -33,3 +33,19 @@ shared.model = PeftModel.from_pretrained(shared.model, Path(f"{shared.args.lora_
 python server.py --model llama-7b-hf --lora chinese-alpaca-lora-7b --cpu
 ```
 更详细的官方说明请参考：[webui using LoRAs](https://github.com/oobabooga/text-generation-webui/blob/main/docs/Using-LoRAs.md)。此外，我们推荐直接运行合并后的chinese-alpaca-7b，相对加载两个权重推理速度会有较大的提升。
+### 加载Chinese-Alpaca-Plus
+
+如要进行Chinese-Alpaca-Plus的应用，请先合并模型，流程如下：
+
+1. 使用[merge_llama_with_chinese_lora.py](https://github.com/ymcui/Chinese-LLaMA-Alpaca/blob/main/scripts/merge_llama_with_chinese_lora.py)合并lora，生成完整的hf格式模型权重：
+```bash
+python scripts/merge_llama_with_chinese_lora.py \
+    --base_model path_to_hf_llama \
+    --lora_model path_to_chinese_llama_plus_lora,path_to_chinese_alpaca_plus_lora \
+    --output_type huggingface \
+    --output_dir path_to_webui/models/merged_chinese_alpaca_plus
+```
+2. 运行以下命令即可与chinese-llama/alpaca plus对话了。
+```bash
+python server.py --model merged_chinese_alpaca_plus --cpu
+```
