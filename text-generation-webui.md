@@ -38,7 +38,7 @@ Please refer to [webui using LoRAs](https://github.com/oobabooga/text-generation
 
 If you want to apply Chinese-Alpaca-Plus, please follow the steps below:
 
-1. Using [merge_llama_with_chinese_lora.py](https://github.com/ymcui/Chinese-LLaMA-Alpaca/blob/main/scripts/merge_llama_with_chinese_lora.py)to obtaining a single model weight file in HF format:
+1. Using [merge_llama_with_chinese_lora.py](https://github.com/ymcui/Chinese-LLaMA-Alpaca/blob/main/scripts/merge_llama_with_chinese_lora.py) to obtaining a single model weight file in HF format:
 ```bash
 python scripts/merge_llama_with_chinese_lora.py \
     --base_model path_to_hf_llama \
