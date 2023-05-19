@@ -45,7 +45,7 @@ python scripts/merge_llama_with_chinese_lora.py \
     --output_type huggingface \
     --output_dir path_to_webui/models/merged_chinese_alpaca_plus
 ```
-2. 运行以下命令即可与chinese-llama/alpaca plus对话了
+2. 运行以下命令即可与chinese-alpaca-plus对话了
 ```bash
 python server.py --model merged_chinese_alpaca_plus --cpu
 ```
