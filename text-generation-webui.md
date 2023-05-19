@@ -34,3 +34,19 @@ Run the following command to talk to chinese-llama/alpaca
 python server.py --model llama-7b-hf --lora chinese-alpaca-lora-7b --cpu
 ```
 Please refer to [webui using LoRAs](https://github.com/oobabooga/text-generation-webui/blob/main/docs/Using-LoRAs.md) for instructions on how to use LoRAs.In addition, we recommend directly running the merged chinese-alpaca-7b, which will greatly improve the inference speed compared with loading two weights.
+### loading Chinese-Alpaca-Plus
+
+If you want to apply Chinese-Alpaca-Plus, please follow the steps below:
+
+1. Using [merge_llama_with_chinese_lora.py](https://github.com/ymcui/Chinese-LLaMA-Alpaca/blob/main/scripts/merge_llama_with_chinese_lora.py)to obtaining a single model weight file in HF format:
+```bash
+python scripts/merge_llama_with_chinese_lora.py \
+    --base_model path_to_hf_llama \
+    --lora_model path_to_chinese_llama_plus_lora,path_to_chinese_alpaca_plus_lora \
+    --output_type huggingface \
+    --output_dir path_to_webui/models/merged_chinese_alpaca_plus
+```
+2. Run the following command to talk to chinese-llama/alpaca plus
+```bash
+python server.py --model merged_chinese_alpaca_plus --cpu
+```
