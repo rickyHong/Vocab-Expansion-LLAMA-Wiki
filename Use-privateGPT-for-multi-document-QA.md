@@ -1,4 +1,3 @@
-(under construction, do not refer)
 [privateGPT](https://github.com/imartinez/privateGPT) is an open-source project based on [llama-cpp-python](https://github.com/abetlen/llama-cpp-python) and [LangChain](https://github.com/hwchase17/langchain) among others. It aims to provide an interface for localizing document analysis and interactive Q&A using large models. Users can utilize privateGPT to analyze local documents and use GPT4All or llama.cpp compatible large model files to ask and answer questions about document content, ensuring data localization and privacy.
 
 Since this project is based on related derivatives of LLaMA, this article will introduce the usage of privateGPT using the GGML format model in llama.cpp as an example.
