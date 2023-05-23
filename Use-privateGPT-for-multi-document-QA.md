@@ -157,7 +157,10 @@ The whole process is not very fast, it took about half a minute to give the rela
 
 Enter `exit` to end the script run.
 
+
 #### Advanced configuration
+
+##### Use more threads for acceleration
 
 `privateGPT.py` actually calls the interface of llama-cpp-python, so if you do not make any code modifications, the default decoding strategy is used. Open `privateGPT.py` and find the following statement (around lines 30-35, it varies depending on different versions).
 
@@ -173,6 +176,21 @@ llm = LlamaCpp(model_path=model_path, n_ctx=model_n_ctx, callbacks=callbacks, ve
 
 A few lines after the above definition, LangChain's RetrievalQA will be used for interaction. For the specific definition and configuration method, please refer to the LangChain documentation.
 
+##### Use Alpaca prompt template
+
+If you are using Alpaca models, you can also pass the prompt template before generation. For example, in near line 55, you can modify the following code.
+
 ```
-qa = RetrievalQA.from_chain_type(llm=llm, chain_type="stuff", retriever=retriever, return_source_documents= not args.hide_source)
+res = qa(query)
+```
+
+into
+
+```
+prompt_template = (
+    "Below is an instruction that describes a task. "
+    "Write a response that appropriately completes the request.\n\n"
+    "### Instruction:\n\n{query}\n\n### Response:\n\n"
+)
+res = qa(prompt_template.format_map({"query": query}))
 ```
