@@ -9,6 +9,7 @@
   - [text-generation-webui](https://github.com/ymcui/Chinese-LLaMA-Alpaca/wiki/使用text-generation-webui搭建界面)
   - [LlamaChat](https://github.com/ymcui/Chinese-LLaMA-Alpaca/wiki/使用LlamaChat图形界面（macOS）)
   - [LangChain](https://github.com/ymcui/Chinese-LLaMA-Alpaca/wiki/与LangChain进行集成)
+  - [privateGPT](https://github.com/ymcui/Chinese-LLaMA-Alpaca/wiki/使用privateGPT进行多文档问答)
 
 ### 3. [系统效果](https://github.com/ymcui/Chinese-LLaMA-Alpaca/wiki/系统效果)
 
@@ -30,6 +31,7 @@
   - [text-generation-webui](https://github.com/ymcui/Chinese-LLaMA-Alpaca/wiki/text-generation-webui)
   - [LlamaChat](https://github.com/ymcui/Chinese-LLaMA-Alpaca/wiki/Using-LlamaChat-Interface)
   - [LangChain](https://github.com/ymcui/Chinese-LLaMA-Alpaca/wiki/Integrated-with-LangChain)
+  - [privateGPT](https://github.com/ymcui/Chinese-LLaMA-Alpaca/wiki/Use-privateGPT-for-multi-document-QA)
 
 ### 3. **[System Performance](https://github.com/ymcui/Chinese-LLaMA-Alpaca/wiki/System-Performance)**
 
