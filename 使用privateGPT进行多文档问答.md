@@ -1,4 +1,3 @@
-（正在建设中，请勿参考）
 [privateGPT](https://github.com/imartinez/privateGPT) 是基于[llama-cpp-python](https://github.com/abetlen/llama-cpp-python)和[LangChain](https://github.com/hwchase17/langchain)等的一个开源项目，旨在提供本地化文档分析并利用大模型来进行交互问答的接口。用户可以利用privateGPT对本地文档进行分析，并且利用GPT4All或llama.cpp兼容的大模型文件对文档内容进行提问和回答，确保了数据本地化和私有化。
 
 由于本项目是基于LLaMA的相关衍生模型，本文以llama.cpp种的GGML格式模型为例介绍privateGPT的使用方法。
@@ -155,7 +154,10 @@ Enter a query:
 
 输入`exit`则可结束脚本运行。
 
+
 #### 高级配置
+
+##### 增加线程数以提升速度
 
 `privateGPT.py`实际是调用了llama-cpp-python的接口，因此如果不做任何代码修改则采用的默认解码策略。打开`privateGPT.py`查找以下语句（大约30-35行左右，根据不同版本有所不同）。
 
@@ -171,7 +173,22 @@ llm = LlamaCpp(model_path=model_path, n_ctx=model_n_ctx, callbacks=callbacks, ve
 
 在上述定义后几行会使用LangChain的RetrievalQA进行交互，具体定义和配置方式请参考LangChain的文档。
 
+##### 传入Alpaca模板
+
+如果使用Alpaca模型，则可以将模板一同传入，如在55行左右的地方将代码
+
 ```
-qa = RetrievalQA.from_chain_type(llm=llm, chain_type="stuff", retriever=retriever, return_source_documents= not args.hide_source)
+res = qa(query)
+```
+
+改为
+
+```
+prompt_template = (
+    "Below is an instruction that describes a task. "
+    "Write a response that appropriately completes the request.\n\n"
+    "### Instruction:\n\n{query}\n\n### Response:\n\n"
+)
+res = qa(prompt_template.format_map({"query": query}))
 ```
 
