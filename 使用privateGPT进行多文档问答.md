@@ -1,6 +1,6 @@
 [privateGPT](https://github.com/imartinez/privateGPT) 是基于[llama-cpp-python](https://github.com/abetlen/llama-cpp-python)和[LangChain](https://github.com/hwchase17/langchain)等的一个开源项目，旨在提供本地化文档分析并利用大模型来进行交互问答的接口。用户可以利用privateGPT对本地文档进行分析，并且利用GPT4All或llama.cpp兼容的大模型文件对文档内容进行提问和回答，确保了数据本地化和私有化。
 
-由于本项目是基于LLaMA的相关衍生模型，本文以llama.cpp种的GGML格式模型为例介绍privateGPT的使用方法。
+由于本项目是基于LLaMA的相关衍生模型，本文以llama.cpp中的GGML格式模型为例介绍privateGPT的使用方法。
 
 更详细的内容和用法请参考privateGPT官方目录：https://github.com/imartinez/privateGPT
 
