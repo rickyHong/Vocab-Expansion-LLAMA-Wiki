@@ -175,20 +175,76 @@ llm = LlamaCpp(model_path=model_path, n_ctx=model_n_ctx, callbacks=callbacks, ve
 
 ##### 传入Alpaca模板
 
-如果使用Alpaca模型，则可以将模板一同传入，如在55行左右的地方将代码
+如果使用Alpaca模型，则可以将模板一同传入。在39行左右将代码
 
 ```
-res = qa(query)
+    qa = RetrievalQA.from_chain_type(llm=llm, chain_type="stuff", retriever=retriever, return_source_documents= not args.hide_source)
 ```
 
 改为
 
 ```
-prompt_template = (
-    "Below is an instruction that describes a task. "
-    "Write a response that appropriately completes the request.\n\n"
-    "### Instruction:\n\n{query}\n\n### Response:\n\n"
-)
-res = qa(prompt_template.format_map({"query": query}))
+    prompt_template = ("Below is an instruction that describes a task. "
+                      "Write a response that appropriately completes the request.\n\n"
+                      "### Instruction:\n{context}\n\n{question}\n\n### Response: ")
+    from langchain import PromptTemplate
+    PROMPT = PromptTemplate(template=prompt_template, input_variables=["context","question"])
+    qa = RetrievalQA.from_chain_type(
+        llm=llm, chain_type="stuff",
+        retriever=retriever, 
+        return_source_documents= not args.hide_source, 
+        chain_type_kwargs={"prompt":PROMPT})
 ```
+
+#### 优化LangChain策略
+
+`privateGPT.py`中调用LangChain时默认使用的是`stuff`策略。该策略并不适用于处理特别长的文本。所以如果在处理长文档或多文档时效果不佳，可以换用`refine`或`map_reduce`等策略。可仿照此处仿照[本项目的LangChain示例](https://github.com/ymcui/Chinese-LLaMA-Alpaca/blob/main/scripts/langchain_demo/langchain_qa.py) 进行修改。若要使用`refine`，需先定义两个prompt模版：
+
+```
+    refine_prompt_template = (
+        "Below is an instruction that describes a task. "
+        "Write a response that appropriately completes the request.\n\n"
+        "### Instruction:\n"
+        "这是原始问题: {question}\n"
+        "已有的回答: {existing_answer}\n"
+        "现在还有一些文字，（如果有需要）你可以根据它们完善现有的回答。"
+        "\n\n"
+        "{context_str}\n"
+        "\\nn"
+        "请根据新的文段，进一步完善你的回答。\n\n"
+        "### Response: "
+    )
+
+    initial_qa_template = (
+        "Below is an instruction that describes a task. "
+        "Write a response that appropriately completes the request.\n\n"
+        "### Instruction:\n"
+        "以下为背景知识：\n"
+        "{context_str}"
+        "\n"
+        "请根据以上背景知识, 回答这个问题：{question}。\n\n"
+        "### Response: "
+    )
+```
+
+并用如下方式初始化`qa`，替换原代码中的39行左右处的`qa`定义：
+
+```python
+    from langchain import PromptTemplate
+    refine_prompt = PromptTemplate(
+        input_variables=["question", "existing_answer", "context_str"],
+        template=refine_prompt_template,
+    )
+    initial_qa_prompt = PromptTemplate(
+        input_variables=["context_str", "question"],
+        template=initial_qa_template,
+    )
+    chain_type_kwargs = {"question_prompt": initial_qa_prompt, "refine_prompt": refine_prompt}
+    qa = RetrievalQA.from_chain_type(
+        llm=llm, chain_type="refine",
+        retriever=retriever, return_source_documents= not args.hide_source,
+        chain_type_kwargs=chain_type_kwargs)
+```
+
+
 
