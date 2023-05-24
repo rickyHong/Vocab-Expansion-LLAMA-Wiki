@@ -177,19 +177,73 @@ A few lines after the above definition, LangChain's RetrievalQA will be used for
 
 ##### Use Alpaca prompt template
 
-If you are using Alpaca models, you can also pass the prompt template before generation. For example, in near line 55, you can modify the following code.
+If you are using Alpaca models, you can also pass the prompt template before generation. For example, near line 39, you can modify the following code
 
 ```
-res = qa(query)
+    qa = RetrievalQA.from_chain_type(llm=llm, chain_type="stuff", retriever=retriever, return_source_documents= not args.hide_source)
 ```
 
-into
+to
 
 ```
-prompt_template = (
-    "Below is an instruction that describes a task. "
-    "Write a response that appropriately completes the request.\n\n"
-    "### Instruction:\n\n{query}\n\n### Response:\n\n"
-)
-res = qa(prompt_template.format_map({"query": query}))
+    prompt_template = ("Below is an instruction that describes a task. "
+                      "Write a response that appropriately completes the request.\n\n"
+                      "### Instruction:\n{context}\n\n{question}\n\n### Response: ")
+    from langchain import PromptTemplate
+    PROMPT = PromptTemplate(template=prompt_template, input_variables=["context","question"])
+    qa = RetrievalQA.from_chain_type(
+        llm=llm, chain_type="stuff",
+        retriever=retriever,
+        return_source_documents= not args.hide_source,
+        chain_type_kwargs={"prompt":PROMPT})
+```
+
+#### Optimize LangChian
+
+In `privateGPT.py`, the default chain type is `stuff`. However, it is not suitable for long documents. You can switch to `refine` or `map_reduce` chain. Please refer to [LangChain example](https://github.com/ymcui/Chinese-LLaMA-Alpaca/blob/main/scripts/langchain_demo/langchain_qa.py) . For instance, if using `refine`, users should first define two prompt template:
+
+```
+    refine_prompt_template = (
+        "Below is an instruction that describes a task. "
+        "Write a response that appropriately completes the request.\n\n"
+        "### Instruction:\n"
+        "这是原始问题: {question}\n"
+        "已有的回答: {existing_answer}\n"
+        "现在还有一些文字，（如果有需要）你可以根据它们完善现有的回答。"
+        "\n\n"
+        "{context_str}\n"
+        "\\nn"
+        "请根据新的文段，进一步完善你的回答。\n\n"
+        "### Response: "
+    )
+
+    initial_qa_template = (
+        "Below is an instruction that describes a task. "
+        "Write a response that appropriately completes the request.\n\n"
+        "### Instruction:\n"
+        "以下为背景知识：\n"
+        "{context_str}"
+        "\n"
+        "请根据以上背景知识, 回答这个问题：{question}。\n\n"
+        "### Response: "
+    )
+```
+
+and modify the code around line 39:
+
+```python
+    from langchain import PromptTemplate
+    refine_prompt = PromptTemplate(
+        input_variables=["question", "existing_answer", "context_str"],
+        template=refine_prompt_template,
+    )
+    initial_qa_prompt = PromptTemplate(
+        input_variables=["context_str", "question"],
+        template=initial_qa_template,
+    )
+    chain_type_kwargs = {"question_prompt": initial_qa_prompt, "refine_prompt": refine_prompt}
+    qa = RetrievalQA.from_chain_type(
+        llm=llm, chain_type="refine",
+        retriever=retriever, return_source_documents= not args.hide_source,
+        chain_type_kwargs=chain_type_kwargs)
 ```
