@@ -16,6 +16,9 @@ Run the following commands to build the llama.cpp project, generating `./main` a
 git clone https://github.com/ggerganov/llama.cpp && cd llama.cpp && make
 ```
 
+- **Windows/Linux are recommended to build with BLAS**, which improves the speed of prompt processing. check：https://github.com/ggerganov/llama.cpp#blas-build
+- no further build requirements for macOS users, as llama.cpp has been optimized for ARM NEON and the BLAS is automatically enabled.
+
 ### Step 2: Generate a quantized model
 
 Depending on the type of model you want to convert (LLaMA or Alpaca), place the `tokenizer.*` files from the downloaded LoRA model package into the `zh-models` directory, and place the `params.json`  and the `consolidate.*.pth` model file obtained in the last step of [Model Conversion](https://github.com/ymcui/Chinese-LLaMA-Alpaca/wiki/Manual-Conversion) into the `zh-models/7B` directory. Note that the `.pth` model file and `tokenizer.model` are corresponding, and the `tokenizer.model` for LLaMA and Alpaca should not be mixed. The directory structure should be similar to:
