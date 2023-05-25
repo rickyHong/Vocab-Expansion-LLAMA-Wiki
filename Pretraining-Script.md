@@ -100,3 +100,28 @@ torchrun \
     ...
 ```
 
+### Prepare for merging
+
+1. Create a directory`${lora_model}` for storing the LoRA model
+
+2. Move `pytorch_model.bin` from `${output_dir}` to `${lora_model}` and rename it to `adapter_model.bin`
+
+   ```bash
+   mv ${output_dir}/pytorch_model.bin ${lora_model}/adapter_model.bin
+   ```
+
+3. Copy tokenzier related files from Chinese-LLaMA-LoRA（can be 7B,13B, Plus or non-Plus）to `${lora_model}`
+
+   ```bash
+   cp chinese-llama-lora-7b/*token* ${lora_model}/
+   ```
+
+4. Copy `adapter_config.json` from Chinese-LLaMA-LoRA to `${lora_model}`
+
+  ```bash
+cp chinese-llama-lora-7b/adapter_config.json ${lora_model}/
+  ```
+
+5. Lastly, edit`${lora_model}/adapter_config.json`, and **make sure`lora_alpha`, `r`, `modules_to_save`, `target_modules` are the same as the parameters used in training.**
+
+Now we are done! `${lora_model}`can be used for mering.
