@@ -1,12 +1,10 @@
 ### ⚠️Important⚠️
 
-**Due to frequent changes in the Peft library, this code is only applicable to specific versions of Peft. Please install [Peft commit id 13e53fc](https://github.com/huggingface/peft/tree/13e53fc) from source. Using other versions of Peft may result in undesirable training behavior and results.**
+**Due to frequent changes in the Peft library, this code is only applicable to specific versions of Peft. Please install [Peft commit id 13e53fc](https://github.com/huggingface/peft/tree/13e53fc) from source. ** Using other versions of Peft may result in undesirable training behavior and results.
 
 The script [scripts/run_clm_pt_with_peft.py](https://github.com/ymcui/Chinese-LLaMA-Alpaca/blob/main/scripts/run_clm_pt_with_peft.py) is used for Pre-training Stage 2. However, we do not recommend performing Pre-training Stage 1 if the computational resources and time are limited as the model takes longer to converge.
 
 Enter the `scripts` directory of the project, and run `bash run_pt.sh` to start pre-training (use a single GPU by default). Users should edit the script set value of parameters. The contents of `run_pt.sh` are as follows:
-
-
 
 Execute the following command to start pre-training (some variables need to be specified by the suer):
 
@@ -69,26 +67,27 @@ torchrun --nnodes 1 --nproc_per_node 1 run_clm_pt_with_peft.py \
     --torch_dtype float16 \
     --gradient_checkpointing \
     --ddp_find_unused_parameters False
-
-
 ```
 
 The meanings of most arguments are self-evident. Here are explanations for some of the arguments:
 
 * `--model_name_or_path`: Directory that stores the original LLaMA model in HuggingFace format
-* `--tokenizer_name_or_path`: Directory that stores the Chinese-LLaMA tokenizer
+* `--tokenizer_name_or_path`: Directory that stores the Chinese-LLaMA tokenizer (⚠️ **Make sure that you are passing Chinese LLaMA tokenizer, not Alpaca, where they are not identical)**
 * `dataset_dir`: Directory of the pre-training data, which can contain multiple plain text files whose filenames end with `txt`
 * `data_cache_dir`: Directory that stores data cache files
 
 
-The hyperparameters listed here (especially the learning rate and parameters related to the total batch size) are for reference only. Please feel free to adjust them based your training data and hardware conditions.
+The hyperparameters listed here, especially the learning rate and parameters related to the total batch size, are for reference only. Please feel free to adjust them based your training data and hardware conditions.
 
-VRAM-saving tips:
+### VRAM-saving tips
 
 * If the VRAM is insufficient, you can remove `--modules_to_save ${modules_to_save} \` from the script. This will exclude training for embed_tokens and lm_head (which have large parameters) and only train the LoRA parameters, thus saving memory (It is suggested to experiment based on Chinese-LLaMA instead of excluding the training of embed_tokens and lm_head from the pre-training stage).
 * If errors occur in the program after executing the previous step, please remove `--gradient_checkpointing \` and try again.
 
+### Multi-node and multi-GPU training
+
 To launch with multi-node and multi-GPU:
+
 ```bash
 torchrun \
   --nnodes ${num_nodes} \
