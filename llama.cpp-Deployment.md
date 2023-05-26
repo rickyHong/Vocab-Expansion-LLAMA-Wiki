@@ -2,11 +2,9 @@ The research community has developed many excellent model quantization and deplo
 
 Before running, please ensure:
 
-1. The model quantization process requires loading the entire unquantized model into memory, so make sure there is enough available memory (7B version requires more than 13G).
-2. When loading the quantized model (e.g., the 7B version), ensure that the available memory on the machine is greater than 4-6G (affected by context length).
-3. The system should have `make` (built-in for MacOS/Linux) or `cmake` (need to be installed separately for Windows) build tools.
-4. It is recommended to use Python 3.9 or 3.10 to build and run the [llama.cpp tool](https://github.com/ggerganov/llama.cpp).
-5. The latest llama.cpp adds GPU support. Please refer to [https://github.com/ggerganov/llama.cpp/discussions/915](https://github.com/ggerganov/llama.cpp/discussions/915)
+1. The system should have `make` (built-in for MacOS/Linux) or `cmake` (need to be installed separately for Windows) build tools.
+2. It is recommended to use Python 3.10
+3. The latest llama.cpp adds GPU support. Please refer to [https://github.com/ggerganov/llama.cpp/discussions/915](https://github.com/ggerganov/llama.cpp/discussions/915)
 
 ### Step 1: Clone and build llama.cpp
 
@@ -16,7 +14,7 @@ Run the following commands to build the llama.cpp project, generating `./main` a
 git clone https://github.com/ggerganov/llama.cpp && cd llama.cpp && make
 ```
 
-- **Windows/Linux are recommended to build with BLAS**, which improves the speed of prompt processing. check：https://github.com/ggerganov/llama.cpp#blas-build
+- **Windows/Linux are recommended to build with BLAS/cuBLAS**, which improves the speed of prompt processing. check：https://github.com/ggerganov/llama.cpp#blas-build
 - no further build requirements for macOS users, as llama.cpp has been optimized for ARM NEON and the BLAS is automatically enabled.
 
 ### Step 2: Generate a quantized model
