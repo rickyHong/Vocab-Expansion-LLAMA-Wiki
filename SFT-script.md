@@ -15,7 +15,7 @@ modules_to_save="embed_tokens,lm_head"
 lora_dropout=0.05
 
 pretrained_model=path/to/hf/llama/or/merged/llama/dir/or/model_id
-chinese_tokenizer_path=path/to/chinese/llama/tokenizer/dir
+chinese_tokenizer_path=path/to/chinese/alpaca/tokenizer/dir
 dataset_dir=path/to/sft/data/dir
 per_device_train_batch_size=1
 per_device_eval_batch_size=1
@@ -95,7 +95,6 @@ Configuration:
   
   * No need to specify `--lora_rank`, `--lora_alpha`, `--lora_dropout`, `--trainable` and `--modules_to_save`
   
-
 * If you want to train a completely new LoRA weight based on Chinese-LLaMA:
 
   * `--model_name_or_path`: the Chinese-LLaMA model (in HF format) which has been merged with the corresponding LoRA weight （no matter if it is Plus model or not）
@@ -127,3 +126,29 @@ torchrun \
   run_clm_sft_with_peft.py \
     ...
 ```
+
+### Prepare for merging
+
+1. Create a directory`${lora_model}` for storing the LoRA model
+
+2. Move `pytorch_model.bin` from `${output_dir}` to `${lora_model}` and rename it to `adapter_model.bin`
+
+   ```bash
+   mv ${output_dir}/pytorch_model.bin ${lora_model}/adapter_model.bin
+   ```
+
+3. Copy tokenzier related files from Chinese-Alpaca-LoRA（can be 7B,13B, Plus or non-Plus）to `${lora_model}`
+
+   ```bash
+   cp chinese-alpaca-plus-lora-7b/*token* ${lora_model}/
+   ```
+
+4. Copy `adapter_config.json` from Chinese-Alpaca-LoRA to `${lora_model}`
+
+  ```bash
+cp chinese-alpaca-plus-lora-7b/adapter_config.json ${lora_model}/
+  ```
+
+5. Lastly, edit`${lora_model}/adapter_config.json`, and make sure**`lora_alpha`, `r`, `modules_to_save`, `target_modules`** are consistent with the parameters used in training.
+
+Now we are done! `${lora_model}`can be used for mering.
