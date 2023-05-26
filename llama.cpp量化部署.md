@@ -15,6 +15,9 @@
 git clone https://github.com/ggerganov/llama.cpp && cd llama.cpp && make
 ```
 
+- **Windows/Linux用户推荐与BLAS一起编译**，可以提高prompt处理速度，参考：https://github.com/ggerganov/llama.cpp#blas-build
+- macOS用户无需额外操作，llama.cpp已对ARM NEON做优化，并且已自动启动BLAS
+
 ###  Step 2: 生成量化版本模型
 
 将合并模型（选择生成`.pth`格式模型）中最后一步生成的`tokenizer.model`文件放入`zh-models`目录下，模型文件`consolidated.*.pth`和配置文件`params.json`放入`zh-models/7B`目录下。请注意LLaMA和Alpaca的`tokenizer.model`不可混用（原因见[训练细节](https://github.com/ymcui/Chinese-LLaMA-Alpaca/wiki/训练细节)）。目录结构类似：
