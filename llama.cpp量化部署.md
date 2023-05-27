@@ -13,8 +13,8 @@
 git clone https://github.com/ggerganov/llama.cpp && cd llama.cpp && make
 ```
 
-- **Windows/Linux用户推荐与BLAS（或cuBLAS如果有GPU）一起编译**），可以提高prompt处理速度，参考：https://github.com/ggerganov/llama.cpp#blas-build
-- macOS用户无需额外操作，llama.cpp已对ARM NEON做优化，并且已自动启用BLAS
+- Windows/Linux用户：**推荐与[BLAS（或cuBLAS如果有GPU）一起编译](https://github.com/ggerganov/llama.cpp#blas-build)**，可以提高prompt处理速度，参考：
+- macOS用户：无需额外操作，llama.cpp已对ARM NEON做优化，并且已自动启用BLAS
 
 ###  Step 2: 生成量化版本模型
 
@@ -100,10 +100,10 @@ python convert.py zh-models/7B/
 
 #### 33B (alpha test, subject to changes)
 
-|                 |  F16 |   Q4_0 |   Q4_1 |   Q5_0 |   Q5_1 |   Q8_0 |
-| --------------- | ---: | -----: | -----: | -----: | -----: | -----: |
-| PPL             |      |        |        |        |        |        |
-| Size            |  60G | 18.44G | 19.07G | 20.98G | 22.89G | 32.42G |
-| ms/tok @ `-t 2` |    - |    482 |        |        |        |        |
-| ms/tok @ `-t 4` |    - |    251 |        |        |        |        |
-| ms/tok @ `-t 8` |    - |    174 |        |        |        |        |
+|                 |    F16 |   Q4_0 | Q4_1 | Q5_0 | Q5_1 | Q8_0 |
+| --------------- | -----: | -----: | ---: | ---: | ---: | ---: |
+| PPL             |        |        |      |      |      |      |
+| Size            | 64.83G | 18.44G |      |      |      |      |
+| ms/tok @ `-t 2` |      - |    482 |      |      |      |      |
+| ms/tok @ `-t 4` |      - |    251 |      |      |      |      |
+| ms/tok @ `-t 8` |      - |    174 |      |      |      |      |

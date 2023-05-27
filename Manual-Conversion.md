@@ -1,10 +1,12 @@
 ### Preparation
 
-1. Make sure the machine has enough memory to load the complete model (e.g., 13-15G for the 7B model) for the model merging operation.
+1. Pull the latest code of our repository first: `git pull`
 
-2. Before merging, make sure that the SHA256 of the base model and the LoRA model patch files are consistent with those in [SHA256.md](https://github.com/ymcui/Chinese-LLaMA-Alpaca/blob/main/SHA256.md), otherwise, the merge operation cannot be performed. The original LLaMA contains the following files: `tokenizer.model`, `tokenizer_checklist.chk`, `consolidated.00.pth`, `params.json`
+2. Make sure the machine has enough memory to load the complete model (e.g., 13-15G for the 7B model) for the model merging operation.
 
-3. Dependencies:
+3. Before merging, make sure that the SHA256 of the base model and the LoRA model patch files are consistent with those in [SHA256.md](https://github.com/ymcui/Chinese-LLaMA-Alpaca/blob/main/SHA256.md), otherwise, the merge operation cannot be performed. The original LLaMA contains the following files: `tokenizer.model`, `tokenizer_checklist.chk`, `consolidated.00.pth`, `params.json`
+
+4. Dependencies:
    - `torch` (1.10, 1.12, 1.13)
    - `transformers`（4.28.1）
    - `sentencepiece`（0.1.97）
