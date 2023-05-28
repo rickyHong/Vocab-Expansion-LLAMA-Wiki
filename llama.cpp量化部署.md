@@ -66,7 +66,7 @@ python convert.py zh-models/7B/
 
 ### 关于量化方法选择及推理速度
 
-下表给出了不同量化方法的相关统计数据供参考。推理模型为中文Alpaca-Plus-7B、Alpaca-Plus-13B，测试设备为M1 Max芯片（8x性能核心，2x能效核心）。速度方面报告的是`eval time`，即模型回复生成的速度。更多关于量化参数的介绍可参考[llama.cpp量化统计表](https://github.com/ggerganov/llama.cpp#quantization)。
+下表给出了不同量化方法的相关统计数据供参考。推理模型为中文Alpaca-Plus-7B、Alpaca-Plus-13B，测试设备为M1 Max芯片（8x性能核心，2x能效核心），分别测试2/4/8线程速度以测算使用本机25%、50%、100%资源下的速度供参考。速度方面报告的是`eval time`，即模型回复生成的速度。更多关于量化参数的介绍可参考[llama.cpp量化统计表](https://github.com/ggerganov/llama.cpp#quantization)。
 
 相关结论：
 
@@ -100,10 +100,10 @@ python convert.py zh-models/7B/
 
 #### 33B (alpha test, subject to changes)
 
-|                 |    F16 |   Q4_0 | Q4_1 | Q5_0 | Q5_1 | Q8_0 |
-| --------------- | -----: | -----: | ---: | ---: | ---: | ---: |
-| PPL             |        |        |      |      |      |      |
-| Size            | 64.83G | 18.44G |      |      |      |      |
-| ms/tok @ `-t 2` |      - |    482 |      |      |      |      |
-| ms/tok @ `-t 4` |      - |    251 |      |      |      |      |
-| ms/tok @ `-t 8` |      - |    174 |      |      |      |      |
+|                 |    F16 |   Q4_0 |   Q4_1 |   Q5_0 |   Q5_1 |   Q8_0 |
+| --------------- | -----: | -----: | -----: | -----: | -----: | -----: |
+| PPL             |        |        |        |        |        |        |
+| Size            | 64.83G | 18.44G | 20.48G | 22.53G | 24.58G | 34.82G |
+| ms/tok @ `-t 2` |      - |    482 |    481 |    702 |    919 |      - |
+| ms/tok @ `-t 4` |      - |    251 |    249 |    355 |    487 |      - |
+| ms/tok @ `-t 8` |      - |    170 |    185 |    224 |    306 |      - |
