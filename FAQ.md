@@ -40,3 +40,7 @@ Answer: As we changed LoRA rank of Alpaca-Plus models, the base model should be 
 ### Q9: The model does not perform well on NLU tasks, such as text classification.
 
 Answer: Unlike other Chinese LLMs, we specifically removed those NLU-like instruction data when training Alpaca models. For example, we removed the data that was created from NLU datasets and automatically converted to instruction-like data using templates. In you need to improve the model's NLU performance, please consider finetuning our models using those data.
+
+### Q10: Why 33B not 30B?
+
+Answer: Actually, it is 33B. In [LLaMA paper](https://arxiv.org/abs/2302.13971v1), the actual parameter size is 32.5B and is referred as 33B in the rest of the paper. However, due to a [typo in releasing LLaMA](https://github.com/facebookresearch/llama/issues/49), it is wrongly named as 30B. We stick to the actual parameter size naming here. Keep in mind that both 30B and 33B refer to the same thing, the second largest model of LLaMA family.
