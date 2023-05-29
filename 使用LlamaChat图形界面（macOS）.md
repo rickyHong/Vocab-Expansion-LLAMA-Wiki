@@ -1,3 +1,5 @@
+### ⚠️ 由于上游llama.cpp重大更新，目前LlamaChat暂时无法加载新版ggml模型。
+
 LlamaChat: https://github.com/alexrozanski/LlamaChat
 
 LlamaChat提供了一种面向macOS系统的类LLaMA模型的交互图形界面。下面以中文Alpaca 7B模型为例介绍相应的启动步骤。
