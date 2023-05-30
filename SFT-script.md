@@ -129,6 +129,10 @@ torchrun \
 
 ### Prepare for merging
 
+The LoRA weights and configurations have been saved to`${output_dir}/sft_lora_model`, which can be used for mering.
+
+(The following steps have been integrated into the training scripts and do not need to be executed. They are provided here for reference purposes only and will be removed in future updates)
+
 1. Create a directory`${lora_model}` for storing the LoRA model
 
 2. Move `pytorch_model.bin` from `${output_dir}` to `${lora_model}` and rename it to `adapter_model.bin`
