@@ -64,6 +64,8 @@ python script/crawl_prompt.py output-file
 
 ### Experimental Setups
 
+The followings are experimental setups for basic 7B model. More details should refer to our [technical report](https://arxiv.org/abs/2304.08177).
+
 | Settings          | Pre-training Stage One | Pre-training Stage Two | Instruction Fine-tuning |
 | :----------------------- | :--------------------: | :--------------------: | :---------------------: |
 | Batch Size               |          1024          |          1024          |           512           |
