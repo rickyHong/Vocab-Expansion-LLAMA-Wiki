@@ -79,7 +79,7 @@ privateGPT支持以下常规文档格式分析，例如（仅列举了最常用�
 - Markdown文件：`.md`
 - 电子邮件文件：`.eml`，`.msg`
 
-将需要分析的文档（不限于单个文档）放到privateGPT根节点下的`source_documents`目录下。这里以[本项目的LangChain示例数据](https://github.com/ymcui/Chinese-LLaMA-Alpaca/blob/main/scripts/langchain_demo/doc.txt)为例进行介绍。目录结构类似：
+将需要分析的文档（不限于单个文档）放到privateGPT根节点下的`source_documents`目录下。这里以[本项目的LangChain示例数据](https://github.com/ymcui/Chinese-LLaMA-Alpaca/blob/main/scripts/langchain/doc.txt)为例进行介绍。目录结构类似：
 
 ```
 > ls source_documents
