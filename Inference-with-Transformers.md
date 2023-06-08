@@ -45,7 +45,7 @@ pip install mdtex2html
 The launch command:
 
 ```
-python scripts/gradio_demo.py \
+python scripts/inference/gradio_demo.py \
 	--base_model path_to_original_llama_hf_dir \
 	--lora_model path_to_chinese_alpaca_lora
 ```
