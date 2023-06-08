@@ -81,7 +81,7 @@ privateGPT supports the analysis of the following common document formats, for e
   - Markdown files: `.md`
   - Email files: `.eml`, `.msg`
 
-Place the documents to be analyzed (not limited to a single document) in the `source_documents` directory under the root node of privateGPT. Here, [the LangChain sample data of this project](https://github.com/ymcui/Chinese-LLaMA-Alpaca/blob/main/scripts/langchain_demo/doc.txt) is used as an example for introduction. The directory structure is similar:
+Place the documents to be analyzed (not limited to a single document) in the `source_documents` directory under the root node of privateGPT. Here, [the LangChain sample data of this project](https://github.com/ymcui/Chinese-LLaMA-Alpaca/blob/main/scripts/langchain/doc.txt) is used as an example for introduction. The directory structure is similar:
 
   ```
   > ls source_documents

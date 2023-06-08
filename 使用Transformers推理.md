@@ -23,7 +23,7 @@ python scripts/inference_hf.py \
 
 参数说明：
 
-* `--base_model {base_model} `：存放**HF格式**的LLaMA模型权重和配置文件的目录。如果之前合并生成的是PyTorch格式模型，[请转换为HF格式](./手动模型合并与转换)
+* `--base_model {base_model} `：存放**HF格式**的LLaMA模型权重和配置文件的目录。如果之前合并生成的是PyTorch格式模型，[请转换为HF格式](./手动模型合并与转换#step-1-将原版llama模型转换为hf格式)
 * `--lora_model {lora_model}` ：中文LLaMA/Alpaca LoRA解压后文件所在目录，也可使用[🤗Model Hub模型调用名称](https://github.com/ymcui/Chinese-LLaMA-Alpaca/tree/main#model-hub)。若不提供此参数，则只加载`--base_model`指定的模型
 * `--tokenizer_path {tokenizer_path}`：存放对应tokenizer的目录。若不提供此参数，则其默认值与`--lora_model`相同；若也未提供`--lora_model`参数，则其默认值与`--base_model`相同
 * `--with_prompt`：是否将输入与prompt模版进行合并。**如果加载Alpaca模型，请务必启用此选项！**
@@ -58,7 +58,7 @@ python scripts/gradio_demo.py --base_model path_to_merged_alpaca_hf_dir
 
 参数说明：
 
-* `--base_model {base_model} `：存放**HF格式**的LLaMA模型权重和配置文件的目录。如果之前合并生成的是PyTorch格式模型，[请转换为HF格式](./手动模型合并与转换)
+* `--base_model {base_model} `：存放**HF格式**的LLaMA模型权重和配置文件的目录。如果之前合并生成的是PyTorch格式模型，[请转换为HF格式](./手动模型合并与转换#step-1-将原版llama模型转换为hf格式)
 * `--lora_model {lora_model}` ：中文Alpaca LoRA解压后文件所在目录，也可使用[🤗Model Hub模型调用名称](https://github.com/ymcui/Chinese-LLaMA-Alpaca/tree/main#model-hub)。若不提供此参数，则只加载`--base_model`指定的模型
 * `--tokenizer_path {tokenizer_path}`：存放对应tokenizer的目录。若不提供此参数，则其默认值与`--lora_model`相同；若也未提供`--lora_model`参数，则其默认值与`--base_model`相同
 * `--use_cpu`: 仅使用CPU进行推理

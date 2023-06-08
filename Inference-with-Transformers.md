@@ -5,7 +5,7 @@ Taking the loading of the Chinese-Alpaca-7B model as an example (for loading Plu
 ### Command-line Interface
 
 ```bash
-python scripts/inference_hf.py \
+python scripts/inference/inference_hf.py \
     --base_model path_to_original_llama_hf_dir \
     --lora_model path_to_chinese_llama_or_alpaca_lora \
     --with_prompt \
@@ -15,7 +15,7 @@ python scripts/inference_hf.py \
 If you have already merged the models with `merge_llama_with_chinese_lora_to_hf.py` , you don't need to specify `--lora_model`:
 
 ```bash
-python scripts/inference_hf.py \
+python scripts/inference/inference_hf.py \
     --base_model path_to_merged_llama_or_alpaca_hf_dir \
     --with_prompt \
     --interactive
@@ -45,7 +45,7 @@ pip install mdtex2html
 The launch command:
 
 ```
-python scripts/gradio_demo.py \
+python scripts/inference/gradio_demo.py \
 	--base_model path_to_original_llama_hf_dir \
 	--lora_model path_to_chinese_alpaca_lora
 ```
@@ -53,7 +53,7 @@ python scripts/gradio_demo.py \
 If you have already merged the LoRA weights with `merge_llama_with_chinese_lora_to_hf.py`, you don't need to specify `--lora_model`:
 
 ```
-python scripts/gradio_demo.py --base_model path_to_merged_alpaca_hf_dir 
+python scripts/inference/gradio_demo.py --base_model path_to_merged_alpaca_hf_dir 
 ```
 
 Parameter description:
@@ -78,7 +78,7 @@ python scripts/merge_llama_with_chinese_lora.py \
 ```
 2. Loading the merged model with `inference_hf.py` or `gradio_demo.py`:
 ```bash
-python scripts/inference_hf.py \
+python scripts/inference/inference_hf.py \
     --base_model path_to_merged_chinese_alpaca_plus \
     --with_prompt --interactive
 ```

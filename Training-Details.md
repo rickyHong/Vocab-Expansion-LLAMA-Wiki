@@ -8,7 +8,7 @@ Due to the limited support for Chinese (and other non-English languages) in the 
 - After removing duplicate tokens, the final Chinese LLaMA vocabulary size is 49,953.
 - It should be noted that during the fine-tuning stage, Alpaca has one more pad token than LLaMA, so the Chinese Alpaca vocabulary size is 49,954.
 
-For more information on the motivation behind expanding the Chinese vocabulary, please refer to the [FAQ](./FAQ). If you want to know the details of vocabulary expansion, or expand LLaMA tokenizer with your custom vocabulary, please check [merge_tokenizers.py](https://github.com/ymcui/Chinese-LLaMA-Alpaca/tree/main/scripts/merge_tokenizers.py). The script can be run as follows:
+For more information on the motivation behind expanding the Chinese vocabulary, please refer to the [FAQ](./FAQ). If you want to know the details of vocabulary expansion, or expand LLaMA tokenizer with your custom vocabulary, please check [merge_tokenizers.py](https://github.com/ymcui/Chinese-LLaMA-Alpaca/tree/main/scripts/merge_tokenizer/merge_tokenizers.py). The script can be run as follows:
 
 ```
 python merge_tokenizers.py \
