@@ -1,3 +1,5 @@
+### ⚠️ Due to breaking changes in llama.cpp, LlamaChat cannot load the latest ggml models.
+
 LlamaChat: https://github.com/alexrozanski/LlamaChat
 
 LlamaChat provides an interactive graphical interface for LLaMA-like models on macOS systems. The following instructions demonstrate the setup process using the Chinese Alpaca 7B model as an example.
@@ -21,7 +23,7 @@ Simply drag LlamaChat into the Applications folder (or any other folder).
 Follow the wizard to configure the model. In this example, choose the Alpaca model.
 <img width="620" alt="image" src="https://user-images.githubusercontent.com/16095339/232356597-22e75440-576b-42a4-a2ca-3d442ab28833.png">
 
-Name the model, choose an avatar, and select the appropriate format from the Format dropdown list: PyTorch format (.pth extension) or GGML format (.bin extension). Specify the model path and model size. The GGML format is the model format obtained from converting with llama.cpp. For more information, refer to [llama.cpp conversion](https://github.com/ymcui/Chinese-LLaMA-Alpaca/wiki/llama.cpp-Deployment).
+Name the model, choose an avatar, and select the appropriate format from the Format dropdown list: PyTorch format (.pth extension) or GGML format (.bin extension). Specify the model path and model size. The GGML format is the model format obtained from converting with llama.cpp. For more information, refer to [llama.cpp conversion](./llama.cpp-Deployment).
 
 ⚠️ LlamaChat does not support the latest quantization format, such as Q5, Q8.
 

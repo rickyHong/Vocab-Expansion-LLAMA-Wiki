@@ -23,7 +23,7 @@ LlamaChat提供了一种面向macOS系统的类LLaMA模型的交互图形界面�
 按照向导配置模型即可。在本实例中，选择Alpaca模型。
 <img width="620" alt="image" src="https://user-images.githubusercontent.com/16095339/232356597-22e75440-576b-42a4-a2ca-3d442ab28833.png">
 
-给模型取一个名字，头像自行选择，下面的`Format`下拉列表选择PyToch格式（`.pth`扩展名）或者GGML格式（`.bin`扩展名），指定模型路径和模型大小。其中GGML格式就是llama.cpp中转换得到的模型格式，具体参考[llama.cpp转换](https://github.com/ymcui/Chinese-LLaMA-Alpaca/wiki/llama.cpp量化部署)。
+给模型取一个名字，头像自行选择，下面的`Format`下拉列表选择PyToch格式（`.pth`扩展名）或者GGML格式（`.bin`扩展名），指定模型路径和模型大小。其中GGML格式就是llama.cpp中转换得到的模型格式，具体参考[llama.cpp转换](./llama.cpp量化部署)。
 
 ⚠️ LlamaChat暂不支持最新的量化方法，例如Q5或者Q8。
 

@@ -1,6 +1,8 @@
 ### ⚠️Important⚠️
 
-**Due to frequent changes in the Peft library, this code is only applicable to specific versions of Peft. Please install [Peft commit id 13e53fc](https://github.com/huggingface/peft/tree/13e53fc) from source. Using other versions of Peft may result in undesirable training behavior and results.**
+- **Due to frequent changes in the Peft library, this code is only applicable to specific versions of Peft. Please install [Peft commit id 13e53fc](https://github.com/huggingface/peft/tree/13e53fc) from source. Using other versions of Peft may result in undesirable training behavior and results.**
+
+### Training Procedure
 
 
 Enter the `scripts` directory of the project, and run `bash run_sft.sh` to start instruction fine-tuning (use a single GPU by default). Users should edit the script set value of parameters. The contents of `run_sft.sh` are as follows:
@@ -103,19 +105,18 @@ Configuration:
 
   * Specify `--lora_rank`, `--lora_alpha`, `--lora_dropout`, `--trainable` and `--modules_to_save`
 
-
-
-
-
 The hyperparameters listed here (especially the learning rate and parameters related to the total batch size) are for reference only. Please feel free to adjust them based your training data and hardware conditions.
 
-VRAM-saving tips:
+### VRAM-saving tips
+
 * If the VRAM is insufficient, you can remove `--modules_to_save ${modules_to_save} \` from the script. This will exclude training for embed_tokens and lm_head (which have large parameters) and only train the LoRA parameters, thus saving memory.
   - If you continue fine-tuning with the existing LoRA weights, you need to modify the `adapter_config.json` and set `"modules_to_save": null`.
 * If errors occur in the program after executing the previous step, please remove `--gradient_checkpointing \` and try again.
 
+### Multi-node and multi-GPU training
 
 To launch with multi-node and multi-GPU:
+
 ```bash
 torchrun \
   --nnodes ${num_nodes} \

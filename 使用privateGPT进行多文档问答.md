@@ -198,7 +198,7 @@ llm = LlamaCpp(model_path=model_path, n_ctx=model_n_ctx, callbacks=callbacks, ve
 
 #### 优化LangChain策略
 
-`privateGPT.py`中调用LangChain时默认使用的是`stuff`策略。该策略并不适用于处理特别长的文本。所以如果在处理长文档或多文档时效果不佳，可以换用`refine`或`map_reduce`等策略。可仿照此处仿照[本项目的LangChain示例](https://github.com/ymcui/Chinese-LLaMA-Alpaca/blob/main/scripts/langchain_demo/langchain_qa.py) 进行修改。若要使用`refine`，需先定义两个prompt模版：
+`privateGPT.py`中调用LangChain时默认使用的是`stuff`策略。该策略并不适用于处理特别长的文本。所以如果在处理长文档或多文档时效果不佳，可以换用`refine`或`map_reduce`等策略。可仿照此处仿照[本项目的LangChain示例](https://github.com/ymcui/Chinese-LLaMA-Alpaca/blob/main/scripts/langchain/langchain_qa.py) 进行修改。若要使用`refine`，需先定义两个prompt模版：
 
 ```
     refine_prompt_template = (

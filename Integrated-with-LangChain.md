@@ -28,7 +28,7 @@ pip install sentence_transformers faiss-cpu
 
 #### Models
 
-Referring to [Manual Conversion](https://github.com/ymcui/Chinese-LLaMA-Alpaca/wiki/Manual-Conversion), merge the LoRA weights and generate  the Chinese-Alpaca model in HF format.
+Referring to [Manual Conversion](./Manual-Conversion), merge the LoRA weights and generate  the Chinese-Alpaca model in HF format.
 In Retrieval QA, LangChain selects the most relevant part of a document as context by matching the similarity between the query and the document content. This context is then combined with the question to generate the input for the LLM. Therefore, it is necessary to prepare a suitable embedding model for text/question vectorization during the matching process. We takes [GanymedeNil/text2vec-large-chinese](https://huggingface.co/GanymedeNil/text2vec-large-chinese/tree/main) as an example for demonstration (in practice, you can choose other suitable embedding models based on your specific needs).
 
 ### Retrieval QA
@@ -36,7 +36,7 @@ In Retrieval QA, LangChain selects the most relevant part of a document as conte
 This task utilizes LLM to perform automatic question answering for specific documents. The process includes reading texts, text segmentation, text/question vectorization, text-question matching, using the matched text as context along with the question to generate corresponding prompts as input to LLM, and generating answers.
 
 ```bash
-cd scripts/langchain_demo
+cd scripts/langchain
 python langchain_qa.py \
   --embedding_path text2vec-large-chinese \
   --model_path chinese-alpaca-plus-7b-merged-hf \
@@ -61,12 +61,12 @@ Running example:
 > 他的作品想像奇特丰富，风格雄起浪漫，意境独特，清新俊逸；善于利用夸饰与譬喻等手法、自然优美的词句，表现出奔放的情感。
 ```
 
-### 3. Summarization
+### Summarization
 
 This task utilizes LLM to generate summarizations of given documents, helping to extract the core information.
 
 ```
-cd scripts/langchain_demo
+cd scripts/langchain
 python langchain_sum.py \
   --model_path chinese-alpaca-plus-7b-merged-hf \
   --file_path doc.txt \

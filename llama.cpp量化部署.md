@@ -1,4 +1,4 @@
-接下来以[llama.cpp工具](https://github.com/ggerganov/llama.cpp)为例，介绍MacOS和Linux系统中，将模型进行量化并在**本地CPU上部署**的详细步骤。Windows则可能需要cmake等编译工具的安装（Windows用户出现模型无法理解中文或生成速度特别慢时请参考[FAQ#6](https://github.com/ymcui/Chinese-LLaMA-Alpaca/wiki/常见问题#问题6windows下模型无法理解中文生成速度很慢等问题)）。**本地快速部署体验推荐使用经过指令精调的Alpaca模型，有条件的推荐使用8-bit模型，效果更佳。** 下面以中文Alpaca-7B模型为例介绍，运行前请确保：
+接下来以[llama.cpp工具](https://github.com/ggerganov/llama.cpp)为例，介绍MacOS和Linux系统中，将模型进行量化并在**本地CPU上部署**的详细步骤。Windows则可能需要cmake等编译工具的安装（Windows用户出现模型无法理解中文或生成速度特别慢时请参考[FAQ#6](./常见问题#问题6windows下模型无法理解中文生成速度很慢等问题)）。**本地快速部署体验推荐使用经过指令精调的Alpaca模型，有条件的推荐使用8-bit模型，效果更佳。** 下面以中文Alpaca-7B模型为例介绍，运行前请确保：
 
 1. 系统应有`make`（MacOS/Linux自带）或`cmake`（Windows需自行安装）编译工具
 4. 建议使用Python 3.10以上编译和运行该工具
@@ -20,7 +20,7 @@ git clone https://github.com/ggerganov/llama.cpp && cd llama.cpp && make
 
 ###  Step 2: 生成量化版本模型
 
-将合并模型（选择生成`.pth`格式模型）中最后一步生成的`tokenizer.model`文件放入`zh-models`目录下，模型文件`consolidated.*.pth`和配置文件`params.json`放入`zh-models/7B`目录下。请注意LLaMA和Alpaca的`tokenizer.model`不可混用（原因见[训练细节](https://github.com/ymcui/Chinese-LLaMA-Alpaca/wiki/训练细节)）。目录结构类似：
+将合并模型（选择生成`.pth`格式模型）中最后一步生成的`tokenizer.model`文件放入`zh-models`目录下，模型文件`consolidated.*.pth`和配置文件`params.json`放入`zh-models/7B`目录下。请注意LLaMA和Alpaca的`tokenizer.model`不可混用（原因见[训练细节](./训练细节)）。目录结构类似：
 
 ```
 llama.cpp/zh-models/

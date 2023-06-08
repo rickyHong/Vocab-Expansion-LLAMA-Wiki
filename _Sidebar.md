@@ -1,34 +1,34 @@
 ## 中文文档
-- **[模型合并与转换](https://github.com/ymcui/Chinese-LLaMA-Alpaca/wiki/模型合并与转换)**
-  - [在线模型合并与转换（Colab）](https://github.com/ymcui/Chinese-LLaMA-Alpaca/wiki/在线模型合并与转换)
-  - [手动模型合并与转换](https://github.com/ymcui/Chinese-LLaMA-Alpaca/wiki/手动模型合并与转换)
-- **[模型量化、推理、部署](https://github.com/ymcui/Chinese-LLaMA-Alpaca/wiki/模型推理与部署)**
-  - [llama.cpp](https://github.com/ymcui/Chinese-LLaMA-Alpaca/wiki/llama.cpp量化部署)
-  - [🤗transformers](https://github.com/ymcui/Chinese-LLaMA-Alpaca/wiki/使用Transformers推理)
-  - [text-generation-webui](https://github.com/ymcui/Chinese-LLaMA-Alpaca/wiki/使用text-generation-webui搭建界面)
-  - [LlamaChat](https://github.com/ymcui/Chinese-LLaMA-Alpaca/wiki/使用LlamaChat图形界面（macOS）)
-  - [LangChain](https://github.com/ymcui/Chinese-LLaMA-Alpaca/wiki/与LangChain进行集成)
-  - [privateGPT](https://github.com/ymcui/Chinese-LLaMA-Alpaca/wiki/使用privateGPT进行多文档问答)
-- **[系统效果](https://github.com/ymcui/Chinese-LLaMA-Alpaca/wiki/系统效果)**
-- **[训练细节](https://github.com/ymcui/Chinese-LLaMA-Alpaca/wiki/训练细节)**
-  - [预训练脚本](https://github.com/ymcui/Chinese-LLaMA-Alpaca/wiki/预训练脚本)
-  - [指令精调脚本](https://github.com/ymcui/Chinese-LLaMA-Alpaca/wiki/指令精调脚本)
-- **[常见问题](https://github.com/ymcui/Chinese-LLaMA-Alpaca/wiki/常见问题)**
+- **[模型合并与转换](./模型合并与转换)**
+  - [在线模型合并与转换（Colab）](./在线模型合并与转换)
+  - [手动模型合并与转换](./手动模型合并与转换)
+- **[模型量化、推理、部署](./模型推理与部署)**
+  - [llama.cpp](./llama.cpp量化部署)
+  - [🤗transformers](./使用Transformers推理)
+  - [text-generation-webui](./使用text-generation-webui搭建界面)
+  - [LlamaChat](./使用LlamaChat图形界面（macOS）)
+  - [LangChain](./与LangChain进行集成)
+  - [privateGPT](./使用privateGPT进行多文档问答)
+- **[系统效果](./系统效果)**
+- **[训练细节](./训练细节)**
+  - [预训练脚本](./预训练脚本)
+  - [指令精调脚本](./指令精调脚本)
+- **[常见问题](./常见问题)**
 
 
 ## English Docs
-- **[Model Reconstruction](https://github.com/ymcui/Chinese-LLaMA-Alpaca/wiki/Model-Reconstruction)**
-  - [Online conversion with Colab](https://github.com/ymcui/Chinese-LLaMA-Alpaca/wiki/Online-conversion-with-Colab)
-  - [Manual Conversion](https://github.com/ymcui/Chinese-LLaMA-Alpaca/wiki/Manual-Conversion)
-- **[Model Quantization, Inference and Deployment](https://github.com/ymcui/Chinese-LLaMA-Alpaca/wiki/Model-Inference-and-Deployment)**
-  - [llama.cpp](https://github.com/ymcui/Chinese-LLaMA-Alpaca/wiki/llama.cpp-Deployment)
-  - [🤗transformers](https://github.com/ymcui/Chinese-LLaMA-Alpaca/wiki/Inference-with-Transformers)
-  - [text-generation-webui](https://github.com/ymcui/Chinese-LLaMA-Alpaca/wiki/text-generation-webui)
-  - [LlamaChat](https://github.com/ymcui/Chinese-LLaMA-Alpaca/wiki/Using-LlamaChat-Interface)
-  - [LangChain](https://github.com/ymcui/Chinese-LLaMA-Alpaca/wiki/Integrated-with-LangChain)
-  - [privateGPT](https://github.com/ymcui/Chinese-LLaMA-Alpaca/wiki/Use-privateGPT-for-multi-document-QA)
-- **[System Performance](https://github.com/ymcui/Chinese-LLaMA-Alpaca/wiki/System-Performance)**
-- **[Training Details](https://github.com/ymcui/Chinese-LLaMA-Alpaca/wiki/Training-Details)**
-  - [Pre-training Script](https://github.com/ymcui/Chinese-LLaMA-Alpaca/wiki/Pretraining-Script)
-  - [SFT Script](https://github.com/ymcui/Chinese-LLaMA-Alpaca/wiki/SFT-Script)
-- **[FAQ](https://github.com/ymcui/Chinese-LLaMA-Alpaca/wiki/FAQ)**
+- **[Model Reconstruction](./Model-Reconstruction)**
+  - [Online conversion with Colab](./Online-conversion-with-Colab)
+  - [Manual Conversion](./Manual-Conversion)
+- **[Model Quantization, Inference and Deployment](./Model-Inference-and-Deployment)**
+  - [llama.cpp](./llama.cpp-Deployment)
+  - [🤗transformers](./Inference-with-Transformers)
+  - [text-generation-webui](./text-generation-webui)
+  - [LlamaChat](./Using-LlamaChat-Interface)
+  - [LangChain](./Integrated-with-LangChain)
+  - [privateGPT](./Use-privateGPT-for-multi-document-QA)
+- **[System Performance](./System-Performance)**
+- **[Training Details](./Training-Details)**
+  - [Pre-training Script](./Pretraining-Script)
+  - [SFT Script](./SFT-Script)
+- **[FAQ](./FAQ)**

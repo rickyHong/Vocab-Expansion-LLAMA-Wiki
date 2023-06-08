@@ -14,7 +14,7 @@
 例子中的超参、prompt模版均未调优，仅供演示参考用。关于LangChain的更详细的使用说明，请参见其[官方文档](https://docs.langchain.com/docs/)。
 
 
-### 一、准备工作
+### 准备工作
 
 #### 环境准备
 
@@ -27,15 +27,15 @@ pip install sentence_transformers faiss-cpu
 
 #### 模型准备
 
-参考[手动模型合并与转换](https://github.com/ymcui/Chinese-LLaMA-Alpaca/wiki/%E6%89%8B%E5%8A%A8%E6%A8%A1%E5%9E%8B%E5%90%88%E5%B9%B6%E4%B8%8E%E8%BD%AC%E6%8D%A2 "Markdown")，合并模型生成HF格式的Chinese-Alpaca模型权重，并将模型保存至本地。
+参考[手动模型合并与转换](./手动模型合并与转换)，合并模型生成HF格式的Chinese-Alpaca模型权重，并将模型保存至本地。
 在检索式问答中，LangChain通过问句与文档内容的相似性匹配，来选取文档中与问句最相关的部分作为上下文，与问题组合生成LLM的输入。因此，需要准备一个合适的embedding model用于匹配过程中的文本/问题向量化。本文以[GanymedeNil/text2vec-large-chinese](https://huggingface.co/GanymedeNil/text2vec-large-chinese/tree/main "Markdown")为例进行说明（实际上，也可以根据实际需要选择其他合适的embedding model）。
 
-### 二、检索式问答
+### 检索式问答
 
 该任务使用LLM完成针对特定文档的自动问答，流程包括：文本读取、文本分割、文本/问题向量化、文本-问题匹配、将匹配文本作为上下文和问题组合生成对应Prompt中作为LLM的输入、生成回答。
 
 ```bash
-cd scripts/langchain_demo
+cd scripts/langchain
 python langchain_qa.py \
   --embedding_path text2vec-large-chinese \
   --model_path chinese-alpaca-plus-7b-merged-hf \
@@ -60,12 +60,12 @@ python langchain_qa.py \
 > 他的作品想像奇特丰富，风格雄起浪漫，意境独特，清新俊逸；善于利用夸饰与譬喻等手法、自然优美的词句，表现出奔放的情感。
 ```
 
-### 三、摘要生成
+### 摘要生成
 
 该任务使用LLM完成给定文档的摘要生成，以帮助提炼文档中的核心信息。
 
 ```
-cd scripts/langchain_demo
+cd scripts/langchain
 python langchain_sum.py \
   --model_path chinese-alpaca-plus-7b-merged-hf \
   --file_path doc.txt \

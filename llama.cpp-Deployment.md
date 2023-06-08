@@ -16,10 +16,12 @@ git clone https://github.com/ggerganov/llama.cpp && cd llama.cpp && make
 
 - **Windows/Linux are recommended to build with BLAS/cuBLAS**, which improves the speed of prompt processing. check：https://github.com/ggerganov/llama.cpp#blas-build
 - no further build requirements for macOS users, as llama.cpp has been optimized for ARM NEON and the BLAS is automatically enabled.
+  - **Recommended**: build with Metal will significantly improve inference speed, just replace with `LLAMA_METAL=1 make`. Refer to [llama.cpp](https://github.com/ggerganov/llama.cpp#metal-build)
+
 
 ### Step 2: Generate a quantized model
 
-Depending on the type of model you want to convert (LLaMA or Alpaca), place the `tokenizer.*` files from the downloaded LoRA model package into the `zh-models` directory, and place the `params.json`  and the `consolidate.*.pth` model file obtained in the last step of [Model Conversion](https://github.com/ymcui/Chinese-LLaMA-Alpaca/wiki/Manual-Conversion) into the `zh-models/7B` directory. Note that the `.pth` model file and `tokenizer.model` are corresponding, and the `tokenizer.model` for LLaMA and Alpaca should not be mixed. The directory structure should be similar to:
+Depending on the type of model you want to convert (LLaMA or Alpaca), place the `tokenizer.*` files from the downloaded LoRA model package into the `zh-models` directory, and place the `params.json`  and the `consolidate.*.pth` model file obtained in the last step of [Model Conversion](./Manual-Conversion) into the `zh-models/7B` directory. Note that the `.pth` model file and `tokenizer.model` are corresponding, and the `tokenizer.model` for LLaMA and Alpaca should not be mixed. The directory structure should be similar to:
 
 ```
 llama.cpp/zh-models/
@@ -43,7 +45,9 @@ Further quantize the FP16 model to 4-bit, and generate a quantized model file wi
 
 ### Step 3: Load and start the model
 
-Run the `./main` binary file, with the `-m` command specifying the 4-bit quantized model (or loading the ggml-FP16 model). Below is an example of decoding parameters:
+Run the `./main` binary file, with the `-m` command specifying the 4-bit quantized model (or loading the ggml-FP16 model). Below is an example of decoding parameters.
+
+**If you have already compiled with Meta, you can add `-ngl 1` to enable Apple Silicon GPU inference.**
 
 ```bash
 ./main -m zh-models/7B/ggml-model-q4_0.bin --color -f ./prompts/alpaca.txt -ins -c 2048 --temp 0.2 -n 256 --repeat_penalty 1.1
@@ -76,23 +80,36 @@ Takeaways:
 - It should be noted that F16 and q8_0 do not improve much in speed when the number of threads is increased.
 - The speed is the fastest when the number of threads `-t` is consistent with the number of physical cores. If it exceeds this number, the speed will actually slow down (on M1 Max, changing from 8 to 10 threads resulted in 3x slow down).
 
+
 #### 7B
 
-|                 |    F16 |   Q4_0 |   Q4_1 |   Q5_0 |   Q5_1 |   Q8_0 |
-| --------------- | -----: | -----: | -----: | -----: | -----: | -----: |
-| PPL             | 10.793 | 12.416 | 12.002 | 11.155 | 10.905 | 10.790 |
-| Size            | 13.77G |  4.31G |  5.17G |  4.74G |  5.17G |  7.75G |
-| ms/tok @ `-t 2` |    144 |     87 |     88 |    143 |    157 |    103 |
-| ms/tok @ `-t 4` |    123 |     50 |     52 |     75 |     82 |     72 |
-| ms/tok @ `-t 8` |    126 |     41 |     49 |     46 |     49 |     69 |
-
+|                       | F16    | Q2_K   | Q3_K_M | Q4_0   | Q4_1   | Q4_K_S | Q5_0   | Q5_1   | Q5_K_S | Q6_K   | Q8_0   |
+| --------------------- | ------ | ------ | ------ | ------ | ------ | ------ | ------ | ------ | ------ | ------ | ------ |
+| PPL                   | 10.793 | 18.292 | 12.504 | 12.416 | 12.002 | 11.717 | 11.155 | 10.905 | 10.930 | 10.845 | 10.790 |
+| Size                  | 13.77G | 2.95G  | 3.37G  | 4.31G  | 5.17G  | 3.93G  | 4.74G  | 5.17G  | 4.76G  | 5.65G  | 7.75G  |
+| ms/tok @ `-t 2`       | 144    |        |        | 87     | 88     |        | 143    | 157    |        |        | 103    |
+| ms/tok @ `-t 4`       | 123    |        |        | 50     | 52     |        | 75     | 82     |        |        | 72     |
+| ms/tok @ `-t 8`       | 126    | 48     | 52     | 41     | 49     | 45     | 46     | 49     | 52     | 58     | 69     |
+| ms/tok @ `-t8 -ngl 1` | x      | x      | x      | 28     | x      | x      | x      | x      | x      | x      | x      |
 
 #### 13B
 
-|                 |   F16 |  Q4_0 |  Q4_1 |  Q5_0 |  Q5_1 |   Q8_0 |
-| --------------- | ----: | ----: | ----: | ----: | ----: | -----: |
-| PPL             | 9.147 | 9.917 | 9.689 | 9.325 | 9.344 |  9.147 |
-| Size            | 26.4G | 8.25G |  9.9G | 9.08G |  9.9G | 14.85G |
-| ms/tok @ `-t 2` |     - |   166 |   166 |   273 |   304 |    192 |
-| ms/tok @ `-t 4` |     - |    89 |    94 |   142 |   155 |    132 |
-| ms/tok @ `-t 8` |     - |    77 |    89 |    86 |    93 |    132 |
+|                       | F16   | Q2_K   | Q3_K_M | Q4_0  | Q4_1  | Q4_K_S | Q5_0  | Q5_1  | Q5_K_S | Q6_K   | Q8_0   |
+| --------------------- | ----- | ------ | ------ | ----- | ----- | ------ | ----- | ----- | ------ | ------ | ------ |
+| PPL                   | 9.147 | 15.455 | 10.229 | 9.917 | 9.689 | 9.947  | 9.325 | 9.344 | 9.286  | 9.169  | 9.147  |
+| Size                  | 26.4G | 5.61G  | 6.43G  | 8.25G | 9.9G  | 7.49G  | 9.08G | 9.9G  | 9.11G  | 10.83G | 14.85G |
+| ms/tok @ `-t 2`       | -     |        |        | 166   | 166   |        | 273   | 304   |        |        | 192    |
+| ms/tok @ `-t 4`       | -     |        |        | 89    | 94    |        | 142   | 155   |        |        | 132    |
+| ms/tok @ `-t 8`       | -     | 83     | 94     | 77    | 89    | 77     | 86    | 93    | 93     | 104    | 132    |
+| ms/tok @ `-t8 -ngl 1` | x     | x      | x      | 49    | x     | x      | x     | x     | x      | x      | x      |
+
+#### 33B (alpha test, subject to changes)
+
+|                       |    F16 |   Q4_0 |   Q4_1 |   Q5_0 |   Q5_1 |   Q8_0 |
+| --------------------- | -----: | -----: | -----: | -----: | -----: | -----: |
+| PPL                   |        |        |        |        |        |        |
+| Size                  | 64.83G | 18.44G | 20.48G | 22.53G | 24.58G | 34.82G |
+| ms/tok @ `-t 2`       |      - |    482 |    481 |    702 |    919 |      - |
+| ms/tok @ `-t 4`       |      - |    251 |    249 |    355 |    487 |      - |
+| ms/tok @ `-t 8`       |      - |    170 |    185 |    224 |    306 |      - |
+| ms/tok @ `-t8 -ngl 1` |        |        |        |        |        |        |

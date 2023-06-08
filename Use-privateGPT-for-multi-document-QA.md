@@ -200,7 +200,7 @@ to
 
 #### Optimize LangChian
 
-In `privateGPT.py`, the default chain type is `stuff`. However, it is not suitable for long documents. You can switch to `refine` or `map_reduce` chain. Please refer to [LangChain example](https://github.com/ymcui/Chinese-LLaMA-Alpaca/blob/main/scripts/langchain_demo/langchain_qa.py) . For instance, if using `refine`, users should first define two prompt template:
+In `privateGPT.py`, the default chain type is `stuff`. However, it is not suitable for long documents. You can switch to `refine` or `map_reduce` chain. Please refer to [LangChain example](https://github.com/ymcui/Chinese-LLaMA-Alpaca/blob/main/scripts/langchain/langchain_qa.py) . For instance, if using `refine`, users should first define two prompt template:
 
 ```
     refine_prompt_template = (
