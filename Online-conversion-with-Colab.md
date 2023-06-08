@@ -9,5 +9,5 @@ For specific steps, please move to the Google Colab notebook to view and run it 
 - Chinese LLaMA, Alpaca, LLaMA-Plus: <a href="https://colab.research.google.com/drive/1Eak6azD3MLeb-YsfbP8UZC8wrL1ddIMI?usp=sharing" target="_parent"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/></a>
 - Chinese Alpaca-Plus: <a href="https://colab.research.google.com/drive/1axIgPoThgm-v3rglmRV9QnhVsJKHsHBj?usp=sharing" target="_parent"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/></a>
 
-- 33B recommended: <img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/></a>
+- 33B recommended: <a href="https://colab.research.google.com/drive/1Jx5dhjeT8TgOxBHOMwNkctJEC8-o9orG?usp=sharing" target="_parent"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/></a>
 
