@@ -1,6 +1,6 @@
 In order to quickly evaluate the actual performance of related models, this project compared the effects of Chinese Alpaca-7B, Alpaca-13B, Alpaca-Plus-7B and Alpaca-Plus-13B on some common tasks given the same prompt. Reply generation is random and is affected by factors such as decoding hyperparameters and random seeds. The following related evaluations are not absolutely rigorous, and the test results are for reference only. Welcome to experience it yourself. For detailed evaluation results, please see [examples](https://github.com/ymcui/Chinese-LLaMA-Alpaca/tree/main/examples).
 
-| 测试任务         | Samples | Alpaca-13B | Alpaca-Plus-7B | Alpaca-Plus-13B |
+| Tasks            | Samples | Alpaca-13B | Alpaca-Plus-7B | Alpaca-Plus-13B |
 | ---------------- | :----: | :--------: | :------------: | :-------------: |
 | **💯Overall**    |  200   |    74.3    |      78.2      |   **👍🏻80.8**    |
 |  Question Answering         |   20   |     70     |       74       |    **👍🏻79**     |
