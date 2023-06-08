@@ -9,7 +9,7 @@
 
 The script [scripts/training/run_clm_pt_with_peft.py](https://github.com/ymcui/Chinese-LLaMA-Alpaca/blob/main/scripts/training/run_clm_pt_with_peft.py) is used for Pre-training Stage 2, which is recommended.
 
-Enter the `scripts` directory of the project, and run `bash run_pt.sh` to start pre-training (use a single GPU by default). Users should edit the script set value of parameters. The contents of `run_pt.sh` are as follows:
+Enter the `scripts/training` directory of the project, and run `bash run_pt.sh` to start pre-training (use a single GPU by default). Users should edit the script set value of parameters. The contents of `run_pt.sh` are as follows:
 
 Execute the following command to start pre-training (some variables need to be specified by the suer):
 
