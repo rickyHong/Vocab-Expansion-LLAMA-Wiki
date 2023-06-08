@@ -5,7 +5,7 @@
 ### Training Procedure
 
 
-Enter the `scripts` directory of the project, and run `bash run_sft.sh` to start instruction fine-tuning (use a single GPU by default). Users should edit the script set value of parameters. The contents of `run_sft.sh` are as follows:
+Enter the `scripts/training` directory of the project, and run `bash run_sft.sh` to start instruction fine-tuning (use a single GPU by default). Users should edit the script set value of parameters. The contents of `run_sft.sh` are as follows:
 
 ```bash
 ########parameters########
