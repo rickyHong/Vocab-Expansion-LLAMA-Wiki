@@ -79,7 +79,7 @@ Takeaways:
 - If resources are sufficient and speed requirements are not too strict, q8_0 can be used, which is similar to the performance of an F16 model.
 - It should be noted that F16 and q8_0 do not improve much in speed when the number of threads is increased.
 - The speed is the fastest when the number of threads `-t` is consistent with the number of physical cores. If it exceeds this number, the speed will actually slow down (on M1 Max, changing from 8 to 10 threads resulted in 3x slow down).
-- If you enabled GPU decoding with Metal, there will be another speed up (marked with `-ngl 1`). Now supports Q4_0 and Q4_K series.
+- If you enabled GPU decoding with Metal, there will be another speed up (marked with `-ngl 1`). Now supports Q4_0, Q2_K, Q6_K, and Q4_K series.
 
 
 #### Alpaca-Plus-7B
@@ -91,7 +91,7 @@ Takeaways:
 | ms/tok @ `-t 2`       |    144 |        |        |     87 |     88 |        |    143 |    157 |        |        |    103 |
 | ms/tok @ `-t 4`       |    123 |        |        |     50 |     52 |        |     75 |     82 |        |        |     72 |
 | ms/tok @ `-t 8`       |    126 |     48 |     52 |     41 |     49 |     45 |     46 |     49 |     52 |     58 |     69 |
-| ms/tok @ `-t8 -ngl 1` |      x |      x |      x |     28 |      x |     32 |      x |      x |      x |      x |      x |
+| ms/tok @ `-t8 -ngl 1` |      x |     29 |      x |     28 |      x |     32 |      x |      x |      x |     32 |      x |
 
 #### Alpaca-Plus-13B
 
@@ -102,7 +102,7 @@ Takeaways:
 | ms/tok @ `-t 2`       |     - |        |        |   166 |   166 |        |   273 |   304 |        |        |    192 |
 | ms/tok @ `-t 4`       |     - |        |        |    89 |    94 |        |   142 |   155 |        |        |    132 |
 | ms/tok @ `-t 8`       |     - |     83 |     94 |    77 |    89 |     77 |    86 |    93 |     93 |    104 |    132 |
-| ms/tok @ `-t8 -ngl 1` |     x |      x |      x |    49 |     x |     58 |     x |     x |      x |      x |      x |
+| ms/tok @ `-t8 -ngl 1` |     x |     52 |      x |    49 |     x |     58 |     x |     x |      x |     59 |      x |
 
 #### Alpaca-33B
 
@@ -110,6 +110,6 @@ Takeaways:
 | :-------------- | -----: | ----: | ------: | ------: | ------: | ------: | ------: | ------: | ------: | ------: | -----: |
 | PPL             | 10.692 | 13.040 | 11.365 | 10.999 | 11.085 | 11.007 | 10.717 | 10.747 | 10.802 | 10.713 |        |
 | Size            | 61.03G | 12.74G | 14.65G | 17.16G | 19.07G | 17.16G | 20.98G | 24.58G | 20.98G | 25.03G | 32.42G |
-| ms/tok @ `-t 2` |      - |        |        | 482    | 481    |        | 702    | 919    |        |        |      - |
-| ms/tok @ `-t 4` |      - |        |        | 251    | 249    |        | 355    | 487    |        |        |      - |
-| ms/tok @ `-t 8` |      - |  219   | 242    | 170    | 185    |        | 224    | 306    |        |        |      - |
+| ms/tok @ `-t 2` |      - |        |        | 482    | 481    |        | 702    | 919    |  |  |      - |
+| ms/tok @ `-t 4` |      - |        |        | 251    | 249    |        | 355    | 487    |  |  |      - |
+| ms/tok @ `-t 8` |      - |  219   | 242    | 170    | 185    |        | 224    | 306    |  |        |      - |
