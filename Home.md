@@ -12,8 +12,8 @@
   - [privateGPT](./使用privateGPT进行多文档问答)
 
 ### 3. 效果与评测
-  - [生成效果评测](./系统效果)
-  - [C-Eval效果评测]
+  - [指令理解与生成效果](./系统效果)
+  - [C-Eval评测效果]
 
 ### 4. [训练细节](./训练细节)
   - [预训练脚本](./预训练脚本)
@@ -35,7 +35,10 @@
   - [LangChain](./Integrated-with-LangChain)
   - [privateGPT](./Use-privateGPT-for-multi-document-QA)
 
-### 3. **[System Performance](./System-Performance)**
+### 3. **System Performance**
+
+- [Instruction-following and Text Generation](./System-Performance)
+- [C-Eval]
 
 ### 4. **[Training Details](./Training-Details)**
   - [Pre-training Script](./Pretraining-script)
