@@ -74,10 +74,17 @@ torchrun --nnodes 1 --nproc_per_node 1 run_clm_pt_with_peft.py \
     --ddp_find_unused_parameters False
 ```
 
+The followings are supported training mode. Please set  `model_name_or_path` and `tokenizer_name_or_path` accordingly. Training with other combinations are not supported, and please debug on your own.
+
+| Usage                                               | model_name_or_path                     | tokenizer_name_or_path           | Vocab  size for final model |
+| --------------------------------------------------- | -------------------------------------- | -------------------------------- | --------------------------- |
+| Continue training original LLaMA ( vocab unchanged) | Original LLaMA (HF format)             | Original LLaMA tokenizer (32000) | 32000                       |
+| Training Chinese LLaMA based on original LLaMA      | Original LLaMA (HF format)             | Chinese LLaMA tokenizer (49953)  | 49953                       |
+| Continue pre-training Chinese LLaMA                 | Chinese LLaMA/LLaMA-Plus (HF format)   | Chinese LLaMA tokenizer (49953)  | 49953                       |
+| Continue pre-training Chinese Alpaca                | Chinese Alpaca/Alpaca-Plus (HF format) | Chinese Alpaca tokenizer (49954) | 49954                       |
+
 The meanings of most arguments are self-evident. Here are explanations for some of the arguments:
 
-* `--model_name_or_path`: Directory that stores the original LLaMA model in HuggingFace format
-* `--tokenizer_name_or_path`: Directory that stores the Chinese-LLaMA tokenizer (⚠️ **Make sure that you are passing Chinese LLaMA tokenizer, not Alpaca, where they are not identical)**
 * `dataset_dir`: Directory of the pre-training data, which can contain multiple plain text files whose filenames end with `txt`
 * `data_cache_dir`: Directory that stores data cache files
 
