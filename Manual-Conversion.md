@@ -46,7 +46,7 @@ tokenizer.model
 
 ### Step 2: Merge LoRA weights to generate full model weights
 
-**[New]** **Please use our new script, which significantly lowers memory usage. Just replace the script with `scripts/merge_llama_with_chinese_lora_low_mem.py`. Caution: macOS+33B conversion (with low_mem script) might cause some unexpected issue. Avoid to use this combination.**
+**[New]** **Please use our new script, which significantly lowers memory usage. Just replace the script with `scripts/merge_llama_with_chinese_lora_low_mem.py`.**
 
 This step will expand the Chinese vocabulary of the original LLaMA model (HF format), merge LoRA weights, and generate full model weights. There are two options available here:
 
