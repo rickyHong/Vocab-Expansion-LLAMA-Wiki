@@ -46,14 +46,12 @@ tokenizer.model
 
 ### Step 2: Merge LoRA weights to generate full model weights
 
-This step will expand the Chinese vocabulary of the original LLaMA model (HF format), merge LoRA weights, and generate full model weights. There are two options available here
+**[New]** **Please use our new script, which significantly lowers memory usage. Just replace the script with `scripts/merge_llama_with_chinese_lora_low_mem.py`.**
 
-1. generate a `pth` model file for quantization and deployment
-- [using llama.cpp for quantization and deployment](./llama.cpp-Deployment)
+This step will expand the Chinese vocabulary of the original LLaMA model (HF format), merge LoRA weights, and generate full model weights. There are two options available here:
 
-2. generate a HuggingFace model file（`bin` file) for simple inference. 
-- [inference with transformers](./Inference-with-Transformers)
-- [deployment with text-generation-webui](./text-generation-webui)
+- Generate  `pth` model file for quantization and deployment: [using llama.cpp for quantization and deployment](./llama.cpp-Deployment)
+- Generate HuggingFace model file（`bin` file) for training and inference: [inference with transformers](./Inference-with-Transformers), [deployment with text-generation-webui](./text-generation-webui)
 
 Note that the merging steps of different models are different. Please read the following guide and follow the steps strictly.
 
