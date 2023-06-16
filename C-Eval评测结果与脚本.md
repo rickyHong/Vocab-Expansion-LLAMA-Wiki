@@ -108,4 +108,4 @@ python eval.py \
   其中`score`为准确率，`num`为测试的总样本条数，`correct`为正确的数量。
   
 
-⚠️ **注意，当在测试集上预测时（`do_test=True`），因为没有测试集标签，`score`和`correct`将为0，为正常现象。**测试集结果需要将`submission.json`文件提交至C-Eval官方进行获取，具体请参考C-Eval官方提交流程。
+⚠️ **注意，当在测试集上预测时（`do_test=True`），因为没有测试集标签，`score`和`correct`将为0，为正常现象。** 测试集结果需要将`submission.json`文件提交至C-Eval官方进行获取，具体请参考C-Eval官方提交流程。
