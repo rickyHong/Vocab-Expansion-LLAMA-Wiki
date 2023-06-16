@@ -11,7 +11,7 @@ This project tested the performance of the relevant models on the recently relea
 | Chinese-Alpaca-Plus-7B  |       36.7        |      32.9      |       36.4       |     32.3      |
 | Chinese-LLaMA-Plus-7B   |       27.3        |      28.3      |       26.9       |     28.4      |
 
-Next, we will introduce the prediction method for the C-Eval dataset. Users can also refer to our Colab Notebook for reference: <a href="https://colab.research.google.com/drive/12YewimRT7JuqJGOejxN7YG8jq2de4DnF?usp=sharing" target="_parent"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/></a>
+In the following, we will introduce the prediction method for the C-Eval dataset. Users can also refer to our Colab Notebook for reference: <a href="https://colab.research.google.com/drive/12YewimRT7JuqJGOejxN7YG8jq2de4DnF?usp=sharing" target="_parent"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/></a>
 
 ### Data Preparation
 Download the dataset from the path specified in [official C-Eval](https://github.com/SJTU-LIT/ceval "Markdown"), and unzip the file to the `data` folder:
