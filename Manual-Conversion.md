@@ -73,7 +73,7 @@ where:
 - `--output_type`: the saving format, either `pth` or `huggingface`. Default: `pth`.
 - `--output_dir`: directory to save the consolidated model weights (default: `./`)
 - (optional) `--offload_dir` (only applicable to the old script `scripts/merge_llama_with_chinese_lora.py`): for low-RAM users, please specify a offload directory
-- (optional) `--verbose` (only applicable to the new script `scripts/merge_llama_with_chinese_lora_low_mem.py`): show detailed messages of the merge process
+- (optional) `--verbose` (only applicable to the new script `scripts/merge_llama_with_chinese_lora_low_mem.py`): show detailed messages of the merging process
 
 
 #### Multiple LoRA weights merging (applicable to Chinese-Alpaca-Plus)
