@@ -24,19 +24,16 @@ We also release the 20K-vocab Chinese sentencepiece model that was used in vocab
 
 ### Pre-training
 
-In the pre-training phase, the general Chinese corpora (consistent with the corpora used in [Chinese BERT-wwm](https://github.com/ymcui/Chinese-BERT-wwm), [MacBERT](https://github.com/ymcui/MacBERT), [LERT](https://github.com/ymcui/LERT), [PERT](https://github.com/ymcui/PERT)) were used for further pre-training based on the original LLaMA weights. This process is divided into two stages:
-
-1. Stage One: Fix the parameters of the transformer part of the model and only train the embedding, adapting the newly added Chinese word vectors without disturbing the original model as much as possible.
-2. Stage Two: Use LoRA technology to add LoRA weights (adapter) to the model, and train the embedding while updating LoRA parameters.
-
-We release the pre-training code [scripts/training/run_clm_pt_with_peft.py](https://github.com/ymcui/Chinese-LLaMA-Alpaca/blob/main/scripts/training/run_clm_pt_with_peft.py) for reference. See [Pre-training Script](./pretraining-script) for the detailed usage.
+- We release the pre-training code [scripts/training/run_clm_pt_with_peft.py](https://github.com/ymcui/Chinese-LLaMA-Alpaca/blob/main/scripts/training/run_clm_pt_with_peft.py) for reference. See [Pre-training Script](./pretraining-script) for the detailed usage.
+- For technical details, please refer to https://arxiv.org/abs/2304.08177
 
 ### Instruction Fine-tuning
 
-1. The task format of the instruction fine-tuning phase is basically the same as that of [Stanford Alpaca](https://github.com/tatsu-lab/stanford_alpaca). The training scheme also used LoRA for efficient fine-tuning and further increased the number of trainable parameters.
-2. We follow the original prompt by [Stanford Alpaca](https://github.com/tatsu-lab/stanford_alpaca) that without "input". For the data that contains "input" values, we simply concatenate them in the form of`f"{instruction}+\n+{input}"`.
+- The task format of the instruction fine-tuning phase is basically the same as that of [Stanford Alpaca](https://github.com/tatsu-lab/stanford_alpaca). The training scheme also used LoRA for efficient fine-tuning and further increased the number of trainable parameters.
 
-We release the SFT code [scripts/training/run_clm_sft_with_peft.py](https://github.com/ymcui/Chinese-LLaMA-Alpaca/blob/main/scripts/training/run_clm_sft_with_peft.py) for reference. See [SFT Script](./SFT-script) for the detailed usage.
+- We follow the original prompt by [Stanford Alpaca](https://github.com/tatsu-lab/stanford_alpaca) that without "input". For the data that contains "input" values, we simply concatenate them in the form of`f"{instruction}+\n+{input}"`.
+
+- We release the SFT code [scripts/training/run_clm_sft_with_peft.py](https://github.com/ymcui/Chinese-LLaMA-Alpaca/blob/main/scripts/training/run_clm_sft_with_peft.py) for reference. See [SFT Script](./SFT-script) for the detailed usage.
 
 ### Training Data
 
