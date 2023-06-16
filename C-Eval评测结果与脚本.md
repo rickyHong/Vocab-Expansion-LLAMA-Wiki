@@ -47,7 +47,7 @@ python eval.py \
 
 #### 参数说明
 
-* `model_path`：待评测模型所在目录（HF格式）
+* `model_path`：待评测模型所在目录（合并LoRA后的HF格式模型）
 
 * `cot`：是否使用chain-of-thought
 
