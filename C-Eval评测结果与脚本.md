@@ -80,7 +80,7 @@ python eval.py \
 
 * `submission.json`为依据官方提交规范生成的存储模型评测答案的文件，形式如：
   
-  ```json
+  ```
   {
       "computer_network": {
           "0": "A",
