@@ -13,7 +13,7 @@
 
 ### 3. 效果与评测
   - [指令理解与生成效果](./系统效果)
-  - [C-Eval评测效果]
+  - [C-Eval评测效果](./C-Eval评测结果与脚本)
 
 ### 4. [训练细节](./训练细节)
   - [预训练脚本](./预训练脚本)
@@ -38,7 +38,7 @@
 ### 3. **System Performance**
 
 - [Instruction-following and Text Generation](./System-Performance)
-- [C-Eval]
+- [C-Eval](./C-Eval-performance-and-script)
 
 ### 4. **[Training Details](./Training-Details)**
   - [Pre-training Script](./Pretraining-script)
