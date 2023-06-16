@@ -44,3 +44,7 @@ Answer: Unlike other Chinese LLMs, we specifically removed those NLU-like instru
 ### Q10: Why 33B not 30B?
 
 Answer: Actually, it is 33B. In [LLaMA paper](https://arxiv.org/abs/2302.13971v1), the actual parameter size is 32.5B and is referred as 33B in the rest of the paper. However, due to a [typo in releasing LLaMA](https://github.com/facebookresearch/llama/issues/49), it is wrongly named as 30B. We stick to the actual parameter size naming here. Keep in mind that both 30B and 33B refer to the same thing, the second largest model of LLaMA family.
+
+### Q11: Inconsistent SHA256
+
+Answer: 1) make sure you have installed the recommended version of dependencies. 2) Please first make sure that you have checked the SHA256 of original LLaMA and our LoRA model (download from official links not third-party). If you have checked that they are the same as listed in SHA256.md, then the merged file would be fine. As there are some rare cases that the SHA256 differs but the actual performance is not affected.
