@@ -76,7 +76,7 @@ python eval.py \
 ### 评测输出
 - 模型预测完成后，生成目录`outputs/take*`，其中`*`代表数字，范围为0至`n_times-1`，分别储存了`n_times`次解码的结果。
 
-- `outputs/take*`下包含`submission.json`和`summary.json `两个json文件。若`do_save_csv=True`，还将包含52个保存的模型生成结果、提取的答案等内容的csv文件。
+- `outputs/take*`下包含`submission.json`和`summary.json`两个json文件。若`do_save_csv=True`，还将包含52个保存的模型生成结果、提取的答案等内容的csv文件。
 
 * `submission.json`为依据官方提交规范生成的存储模型评测答案的文件，形式如：
   
@@ -96,7 +96,7 @@ python eval.py \
   }
   ```
   
-* `summary.json `包含模型在52个主题下、4个大类下和总体平均的评测结果。例如，json文件最后的`All`字段中会显示总体平均效果：
+* `summary.json`包含模型在52个主题下、4个大类下和总体平均的评测结果。例如，json文件最后的`All`字段中会显示总体平均效果：
   
   ```json
 	"All": {
