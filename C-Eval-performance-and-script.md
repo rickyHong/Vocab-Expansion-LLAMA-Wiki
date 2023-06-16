@@ -2,7 +2,7 @@
 
 This project tested the performance of the relevant models on the recently released [C-Eval benchmark](https://cevalbenchmark.com) dataset. The test set consists of 12.3K multiple-choice questions covering 52 subjects. Below are the validation and test set evaluation results (Average) for some of the models. For the complete results, please refer to our [technical report](https://arxiv.org/abs/2304.08177).
 
-| 模型                    | Valid (zero-shot) | Valid (5-shot) | Test (zero-shot) | Test (5-shot) |
+| Model                   | Valid (zero-shot) | Valid (5-shot) | Test (zero-shot) | Test (5-shot) |
 | ----------------------- | :---------------: | :------------: | :--------------: | :-----------: |
 | Chinese-Alpaca-33B      |       43.3        |      42.6      |       41.6       |     40.4      |
 | Chinese-LLaMA-33B       |       34.9        |      38.4      |       34.6       |     39.5      |
