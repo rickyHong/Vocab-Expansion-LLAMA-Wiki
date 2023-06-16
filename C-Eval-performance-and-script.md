@@ -79,7 +79,7 @@ python eval.py \
 
 *  `submission.json` stores generated answers in the official submission form, and can be submitted for evaluation:
 
-  ```json
+  ```
   {
       "computer_network": {
           "0": "A",
