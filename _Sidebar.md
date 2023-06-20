@@ -9,6 +9,7 @@
   - [LlamaChat](./使用LlamaChat图形界面（macOS）)
   - [LangChain](./与LangChain进行集成)
   - [privateGPT](./使用privateGPT进行多文档问答)
+  - [API调用](./API调用)
 - **效果与评测**
   - [指令理解与生成效果](./系统效果)
   - [C-Eval评测效果与脚本](./C-Eval评测结果与脚本)
@@ -29,6 +30,7 @@
   - [LlamaChat](./Using-LlamaChat-Interface)
   - [LangChain](./Integrated-with-LangChain)
   - [privateGPT](./Use-privateGPT-for-multi-document-QA)
+  - [API Calls](./API-Calls)
 - **System Performance**
   - [Instruction-following and Text Generation](./System-Performance)
   - [C-Eval](./C-Eval-performance-and-script)
