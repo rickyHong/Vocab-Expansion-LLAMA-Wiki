@@ -1,4 +1,3 @@
-
 > 该文档是`scripts/openai_server_demo/README.md`的镜像，由@sunyuhan19981208提供该PR。 
 >
 > 更加详细的OPENAI API信息：<https://platform.openai.com/docs/api-reference>
