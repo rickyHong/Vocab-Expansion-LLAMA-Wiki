@@ -1,4 +1,4 @@
-接下来以[llama.cpp工具](https://github.com/ggerganov/llama.cpp)为例，介绍MacOS和Linux系统中，将模型进行量化并在**本地CPU上部署**的详细步骤。Windows则可能需要cmake等编译工具的安装（Windows用户出现模型无法理解中文或生成速度特别慢时请参考[FAQ#6](./常见问题#问题6windows下模型无法理解中文生成速度很慢等问题)）。**本地快速部署体验推荐使用经过指令精调的Alpaca模型，有条件的推荐使用8-bit模型，效果更佳。** 下面以中文Alpaca-7B模型为例介绍，运行前请确保：
+以[llama.cpp工具](https://github.com/ggerganov/llama.cpp)为例，介绍模型量化并在**本地CPU上部署**的详细步骤。Windows则可能需要cmake等编译工具的安装（Windows用户出现模型无法理解中文或生成速度特别慢时请参考[FAQ#6](./常见问题#问题6windows下模型无法理解中文生成速度很慢等问题)）。**本地快速部署体验推荐使用经过指令精调的Alpaca模型，有条件的推荐使用8-bit模型，效果更佳。** 下面以中文Alpaca-7B模型为例介绍，运行前请确保：
 
 1. 系统应有`make`（MacOS/Linux自带）或`cmake`（Windows需自行安装）编译工具
 4. 建议使用Python 3.10以上编译和运行该工具
@@ -7,15 +7,27 @@
 
 ### Step 1: 克隆和编译llama.cpp
 
-运行以下命令对llama.cpp项目进行编译，生成`./main`和`./quantize`二进制文件。
+1. 克隆最新版llama.cpp仓库代码
 
-```bash
-git clone https://github.com/ggerganov/llama.cpp && cd llama.cpp && make
+```
+git clone https://github.com/ggerganov/llama.cpp
 ```
 
-- Windows/Linux用户：**推荐与[BLAS（或cuBLAS如果有GPU）一起编译](https://github.com/ggerganov/llama.cpp#blas-build)**，可以提高prompt处理速度，参考：
+2. （可选）如需使用`qX_k` 量化方法（相比常规量化方法效果更好），请手动打开`llama.cpp`文件，修改下列行（约2500行左右）：
+
+- 原始代码：`if (nx % QK_K != 0 || ny % QK_K != 0) {` 
+
+- 改为：`if (nx % QK_K != 0) {`
+
+3. 对llama.cpp项目进行编译，生成`./main`和`./quantize`二进制文件。
+
+```bash
+make
+```
+
+- Windows/Linux用户：**推荐与[BLAS（或cuBLAS如果有GPU）一起编译](https://github.com/ggerganov/llama.cpp#blas-build)**，可以提高prompt处理速度，参考：[llama.cpp#blas-build](https://github.com/ggerganov/llama.cpp#blas-build)
 - macOS用户：无需额外操作，llama.cpp已对ARM NEON做优化，并且已自动启用BLAS。
-  - **推荐**：使用Metal启用GPU推理，显著提升速度。只需将编译命令改为：`LLAMA_METAL=1 make`，具体可参考[llama.cpp](https://github.com/ggerganov/llama.cpp#metal-build)
+  - **M系列芯片推荐**：使用Metal启用GPU推理，显著提升速度。只需将编译命令改为：`LLAMA_METAL=1 make`，参考[llama.cpp#metal-build](https://github.com/ggerganov/llama.cpp#metal-build)
 
 
 ###  Step 2: 生成量化版本模型

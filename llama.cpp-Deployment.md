@@ -8,15 +8,27 @@ Before running, please ensure:
 
 ### Step 1: Clone and build llama.cpp
 
-Run the following commands to build the llama.cpp project, generating `./main` and `./quantize` binary files.
+1. Clone llama.cpp repository
+
+```
+git clone https://github.com/ggerganov/llama.cpp
+```
+
+2. (Optional) If you want to use `k-quants` series (usually has better quantization perf.), please edit `llama.cpp` file (near line 2500):
+
+- Original code: `if (nx % QK_K != 0 || ny % QK_K != 0) {` 
+
+- Modified one: `if (nx % QK_K != 0) {`
+
+3. Run the following commands to build the llama.cpp project, generating `./main` and `./quantize` binary files.
 
 ```bash
-git clone https://github.com/ggerganov/llama.cpp && cd llama.cpp && make
+make
 ```
 
 - **Windows/Linux are recommended to build with BLAS/cuBLAS**, which improves the speed of prompt processing. check：https://github.com/ggerganov/llama.cpp#blas-build
 - no further build requirements for macOS users, as llama.cpp has been optimized for ARM NEON and the BLAS is automatically enabled.
-  - **Recommended**: build with Metal will significantly improve inference speed, just replace with `LLAMA_METAL=1 make`. Refer to [llama.cpp](https://github.com/ggerganov/llama.cpp#metal-build)
+  - **Recommended for M-series**: build with Metal will significantly improve inference speed, just replace with `LLAMA_METAL=1 make`. Refer to [llama.cpp](https://github.com/ggerganov/llama.cpp#metal-build)
 
 
 ### Step 2: Generate a quantized model
