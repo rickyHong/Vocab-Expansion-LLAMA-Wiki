@@ -68,5 +68,5 @@ The followings are experimental setups for basic 7B model. More details should r
 | Training Steps           |           3K           |           6K           |         6K-10K          |
 | Max Length               |          512           |          512           |           512           |
 | Trainable Parameters (%) |         2.97%          |         6.06%          |          6.22%          |
-| Training Device          |    8 × A100     |    16 × A100     |     16 × A100     |
+| Training Device          |    8 × A40(48G)     |    16 × A40(48G)     |     16 × A40(48G)     |
 | Distributed Training     | DeepSpeed Zero-2 | DeepSpeed Zero-2 | DeepSpeed Zero-2 |
