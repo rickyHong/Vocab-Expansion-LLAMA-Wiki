@@ -4,7 +4,7 @@
 
 ### 命令行交互形式
 ```bash
-python scripts/inference_hf.py \
+python scripts/inference/inference_hf.py \
     --base_model path_to_original_llama_hf_dir \
     --lora_model path_to_chinese_llama_or_alpaca_lora \
     --with_prompt \
@@ -14,7 +14,7 @@ python scripts/inference_hf.py \
 如果之前已执行了`merge_llama_with_chinese_lora_to_hf.py`脚本将lora权重合并，那么无需再指定`--lora_model`，启动方式更简单：
 
 ```bash
-python scripts/inference_hf.py \
+python scripts/inference/inference_hf.py \
     --base_model path_to_merged_llama_or_alpaca_hf_dir \
     --with_prompt \
     --interactive
@@ -45,7 +45,7 @@ pip install mdtex2html
 启动命令如下：
 
 ```
-python scripts/gradio_demo.py \
+python scripts/inference/gradio_demo.py \
 	--base_model path_to_original_llama_hf_dir \
 	--lora_model path_to_chinese_alpaca_lora
 ```
@@ -53,7 +53,7 @@ python scripts/gradio_demo.py \
 同样，如果已经执行了`merge_llama_with_chinese_lora_to_hf.py`脚本将lora权重合并，那么无需再指定`--lora_model`：
 
 ```
-python scripts/gradio_demo.py --base_model path_to_merged_alpaca_hf_dir 
+python scripts/inference/gradio_demo.py --base_model path_to_merged_alpaca_hf_dir 
 ```
 
 参数说明：
@@ -78,7 +78,7 @@ python scripts/merge_llama_with_chinese_lora.py \
 ```
 2. 使用inference_hf.py或gradio_demo.py加载合并后的模型进行推理，如：
 ```bash
-python scripts/inference_hf.py \
+python scripts/inference/inference_hf.py \
     --base_model path_to_merged_chinese_alpaca_plus \
     --with_prompt --interactive
 ```
