@@ -27,8 +27,9 @@ make
 ```
 
 - **Windows/Linux are recommended to build with BLAS/cuBLAS**, which improves the speed of prompt processing. check：https://github.com/ggerganov/llama.cpp#blas-build
+
 - no further build requirements for macOS users, as llama.cpp has been optimized for ARM NEON and the BLAS is automatically enabled.
-  - **Recommended for M-series**: build with Metal will significantly improve inference speed, just replace with `LLAMA_METAL=1 make`. Refer to [llama.cpp](https://github.com/ggerganov/llama.cpp#metal-build)
+  - **Recommended for M-series processors**: build with Metal will significantly improve inference speed, just replace with `LLAMA_METAL=1 make`. Refer to [llama.cpp](https://github.com/ggerganov/llama.cpp#metal-build)
 
 
 ### Step 2: Generate a quantized model
